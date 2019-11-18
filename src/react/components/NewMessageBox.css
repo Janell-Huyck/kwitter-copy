@@ -1,0 +1,26 @@
+.newMessageBox {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: auto;
+}
+.newMessageIcon {
+  height: 100%;
+  width: 100%;
+  grid-area: 2/1/2/2;
+}
+
+textarea {
+  width: 100%;
+}
+
+.newMessageText {
+  grid-area: 1/2/5/4;
+  height: auto;
+  width: auto;
+}
+
+.newMessageButtonDiv {
+  grid-area: 5/2/6/4;
+  display: flex;
+  justify-content: space-around;
+}
