@@ -5,7 +5,7 @@ const fakeUser = {
     pictureLocation: 'https://boygeniusreport.files.wordpress.com/2016/11/puppy-dog.jpg?quality=98&strip=all&w=782',
     username: 'jordans-Test',
     displayName: 'Jordan\'s Test',
-    about: 'testest',
+    about: 'testing bio',
     googleId: null,
     createdAt: '',
     updatedAt: ''
