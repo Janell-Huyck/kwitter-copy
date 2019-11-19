@@ -1,3 +1,10 @@
+// import { create } from "domain";
+//
+//
+//**********************************************
+//I'm not sure why import {create} is here but it's breaking the program LOL!
+//******************************************** */ * /
+
 const createActionTypes = actionName => {
   const ACTIONNAME = actionName.toUpperCase();
   return {
@@ -9,3 +16,7 @@ const createActionTypes = actionName => {
 
 export const LOGIN = createActionTypes("LOGIN");
 export const LOGOUT = createActionTypes("LOGOUT");
+export const DELETEMESSAGE = createActionTypes("DELETEMESSAGE");
+export const GETMESSAGELIST = createActionTypes("GETMESSAGELIST");
+export const GETONEMESSAGE = createActionTypes("GETONEMESSAGE");
+export const POSTMESSAGE = createActionTypes("POSTMESSAGE");
