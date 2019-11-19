@@ -3,7 +3,7 @@ import { Spinner } from ".";
 import { withAsyncAction } from "../HOCs";
 import "./LoginForm.css";
 import { Input, Button } from "semantic-ui-react";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   state = { username: "", password: "" };
@@ -50,7 +50,7 @@ class LoginForm extends React.Component {
             </Button>
             <button className="createAccountButton" type="submit">
               Create Account
-            </Link>
+            </button>
             
           </form>
           {loading && <Spinner name="circle" color="blue" />}
