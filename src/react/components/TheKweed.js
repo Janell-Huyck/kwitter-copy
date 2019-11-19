@@ -5,9 +5,9 @@ import { NewMessageBox } from ".";
 class TheKweed extends React.Component {
     render() {
         return (
-            <React.Fragment className='body'>
+            <div className='body'>
             <NewMessageBox placeholder='Whats Happening'/>
-            </React.Fragment>
+            </div>
         )
     }
 }
