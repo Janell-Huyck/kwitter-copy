@@ -2,6 +2,7 @@ import React from "react";
 import { Spinner } from ".";
 import { withAsyncAction } from "../HOCs";
 import "./LoginForm.css";
+import { Input, Button, Card, Feed } from "semantic-ui-react";
 
 class LoginForm extends React.Component {
   state = { username: "", password: "" };
@@ -18,30 +19,42 @@ class LoginForm extends React.Component {
   render() {
     const { loading, error } = this.props;
     return (
-      <React.Fragment>
-        <form id="login-form" onSubmit={this.handleLogin}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            name="username"
-            autoFocus
-            required
-            onChange={this.handleChange}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            required
-            onChange={this.handleChange}
-          />
-          <button type="submit" disabled={loading}>
-            Login
-          </button>
-        </form>
-        {loading && <Spinner name="circle" color="blue" />}
-        {error && <p style={{ color: "red" }}>{error.message}</p>}
-      </React.Fragment>
+      <div id="formStyle">
+        <React.Fragment>
+          <form id="login-form" onSubmit={this.handleLogin}>
+            <Input
+              size="huge"
+              label="Username"
+              type="text"
+              name="username"
+              placeholder="Enter your Name"
+              autoFocus
+              required
+              onChange={this.handleChange}
+            />
+
+            <Input
+              size="huge"
+              label="Password"
+              type="password"
+              name="password"
+              placeholder="Enter your Password"
+              autoFocus
+              required
+              onChange={this.handleChange}
+            />
+
+            <Button size="huge" type="submit" disabled={loading}>
+              Login
+            </Button>
+            <button class="buttonSize" type="submit">
+              Create Account
+            </button>
+          </form>
+          {loading && <Spinner name="circle" color="blue" />}
+          {error && <p style={{ color: "red" }}>{error.message}</p>}
+        </React.Fragment>
+      </div>
     );
   }
 }
