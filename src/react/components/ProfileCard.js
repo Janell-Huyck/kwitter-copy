@@ -34,5 +34,13 @@ class ProfileCard extends Component {
         )
     }
 }
+class SecondCard extends Component {
+    render () {
+        return (
+            <>
+            </>
+        )
+    }
+}
 
 export default ProfileCard
