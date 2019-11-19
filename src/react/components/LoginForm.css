@@ -5,45 +5,43 @@
   margin: 20px;
   align-items: center;
   justify-content: center;
-  
-  
 }
-#root{
-background-image: url(https://picjumbo.com/wp-content/uploads/free-stock-photos-san-francisco-1080x720.jpg);
-height: 120ch;
-background-repeat: no-repeat;
+#root {
+  background-image: url(https://picjumbo.com/wp-content/uploads/free-stock-photos-san-francisco-1080x720.jpg);
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background-size: 100% 100%;
-
 }
-#formStyle{
+#formStyle {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 150px;
-  
-  
+  margin-top: 10px;
 }
-.ui.labeled.input{
-  margin:8px;
+.ui.labeled.input {
+  margin: 8px;
   margin-bottom: 15px;
   height: 60px;
   width: 450px;
-
 }
-.ui.label.label{
+.ui.label.label {
   width: 130px;
 }
-.ui.button{
+.ui.button {
   height: 60px;
   width: 450px;
-  margin-top:20px;
+  margin-top: 20px;
   font-size: 30em;
-  
 }
-.buttonSize{
+.buttonSize {
   margin-top: 20px;
   width: 150px;
   height: 40px;
-  
+  font-size: large;
+  margin-left: 35px;
+  font-weight: 100;
+  color:gray;
+  text-decoration-line: underline;
 }
