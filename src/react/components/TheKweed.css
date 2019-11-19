@@ -1,0 +1,28 @@
+.body {
+  width: 100px;
+  height: 500px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.theKweed {
+  width: 100ch;
+  height: 500ch;
+  background-color: white;
+  
+}
+
+.followers {
+  width: 100ch;
+  height: 500ch;
+  background-color: white;
+  
+}
+
+.profile {
+  width: 100ch;
+  height: 500ch;
+  background-color: white;
+  
+}

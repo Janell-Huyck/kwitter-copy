@@ -2,7 +2,7 @@ import React from "react";
 import { Spinner } from ".";
 import { withAsyncAction } from "../HOCs";
 import "./LoginForm.css";
-import { Input, Button, Card, Feed } from "semantic-ui-react";
+import { Input, Button } from "semantic-ui-react";
 
 class LoginForm extends React.Component {
   state = { username: "", password: "" };
@@ -47,7 +47,7 @@ class LoginForm extends React.Component {
             <Button size="huge" type="submit" disabled={loading}>
               Login
             </Button>
-            <button class="buttonSize" type="submit">
+            <button className="createAccountButton" type="submit">
               Create Account
             </button>
           </form>
