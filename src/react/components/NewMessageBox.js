@@ -1,6 +1,5 @@
 import React from "react";
-import "./NewMessageBox.css";
-
+import { Link } from ".";
 class NewMessageBox extends React.Component {
   constructor(props) {
     super(props);
@@ -8,7 +7,6 @@ class NewMessageBox extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleCancel = this.handleCancel.bind(this);
   }
 
   handleChange(event) {
@@ -16,12 +14,17 @@ class NewMessageBox extends React.Component {
   }
 
   handleSubmit(event) {
-    alert("A message was submitted: " + this.state.value);
     event.preventDefault();
-  }
-
-  handleCancel(event) {
-    this.setState({ value: "" });
+    fetch("https://kwitter-api.herokuapp.com/messages", {
+      method: "POST",
+      text: JSON.stringify(`${this.state.value}`)
+    })
+      .then(function(data) {
+        console.log("Request success: ", data);
+      })
+      .catch(function(error) {
+        console.log("Request failure: ", error);
+      });
   }
 
   render() {
@@ -39,9 +42,11 @@ class NewMessageBox extends React.Component {
         </form>
         <br />
         <div className="newMessageButtonDiv">
-          <button onClick={this.handleSubmit}>Submit</button>
+          <button onClick={this.handleSubmit}>Post Message</button>
           <br />
-          <button onClick={this.handleCancel}>Cancel</button>
+          <Link to="/messagefeed">
+            <button>Cancel</button>
+          </Link>
         </div>
       </div>
     );

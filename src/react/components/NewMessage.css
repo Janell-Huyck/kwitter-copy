@@ -1,8 +1,14 @@
+.newMessagePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .newMessageBox {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: auto;
 }
+
 .newMessageIcon {
   height: 100%;
   width: 100%;
@@ -14,13 +20,13 @@ textarea {
 }
 
 .newMessageText {
-  grid-area: 1/2/5/4;
+  grid-area: 1/2/5/6;
   height: auto;
   width: auto;
 }
 
 .newMessageButtonDiv {
-  grid-area: 5/2/6/4;
+  grid-area: 5/2/6/6;
   display: flex;
   justify-content: space-around;
 }
