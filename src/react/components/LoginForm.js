@@ -2,7 +2,8 @@ import React from "react";
 import { Spinner } from ".";
 import { withAsyncAction } from "../HOCs";
 import "./LoginForm.css";
-import { Input, Button} from "semantic-ui-react";
+import { Input, Button } from "semantic-ui-react";
+import { Link } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   state = { username: "", password: "" };
@@ -47,9 +48,10 @@ class LoginForm extends React.Component {
             <Button size="huge" type="submit" disabled={loading}>
               Login
             </Button>
-            <button className="buttonSize" type="submit">
+            <Link to="/register"  className="buttonSize" >
               Create Account
-            </button>
+            </Link>
+            
           </form>
           {loading && <Spinner name="circle" color="blue" />}
           {error && <p style={{ color: "red" }}>{error.message}</p>}
