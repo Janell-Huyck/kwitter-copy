@@ -1,12 +1,12 @@
 #menu {
-  /* background-color: lightskyblue; */
+  justify-self: stretch;
+  /* background-color: rgba(135, 206, 250, 0.2); */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1em;
   border-radius: 1em;
   justify-content: center;
- 
 }
 
 #menu-links {
@@ -20,7 +20,7 @@
   text-decoration: underline;
   cursor: pointer;
 }
-#menu>h1{
+#menu > h1 {
   font-size: 70px;
-  margin-top:140px;
+  margin-top: 140px;
 }

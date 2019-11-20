@@ -1,0 +1,14 @@
+.messageList {
+  background-color: rgba(255, 255, 240, 0.7);
+  border-radius: 1em;
+}
+
+.messageCard {
+  background-color: ivory;
+  border-radius: 1em;
+
+  border: 1px solid black;
+
+  padding: 1em;
+  margin: 2em;
+}

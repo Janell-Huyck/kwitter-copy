@@ -30,8 +30,7 @@ class ProfileCard extends Component {
                     <p>joined: {date}</p>
                     <p id='userBio'>{fakeUser.about ? 'bio: ' + fakeUser.about : 'No bio provided by this user'}</p>
                 </div> */}
-                <div id = 'header'>
-                <img src = {}> </img>
+                <div>                    
                 </div>
             </>
         )

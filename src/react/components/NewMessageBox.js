@@ -1,33 +1,24 @@
 import React from "react";
 import { Link } from ".";
+import { withAsyncAction } from "../HOCs";
+import { Spinner } from ".";
+
 class NewMessageBox extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: "" };
+  state = { value: "" };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
+  handleChange = event => {
     this.setState({ value: event.target.value });
-  }
+  };
 
-  handleSubmit(event) {
+  postMessage = event => {
     event.preventDefault();
-    fetch("https://kwitter-api.herokuapp.com/messages", {
-      method: "POST",
-      text: JSON.stringify(`${this.state.value}`)
-    })
-      .then(function(data) {
-        console.log("Request success: ", data);
-      })
-      .catch(function(error) {
-        console.log("Request failure: ", error);
-      });
-  }
+    // console.log(this.state.value);
+    console.log(this);
+    this.props.postMessage({ text: this.state.value });
+  };
 
   render() {
+    const { loading, error } = this.props;
     return (
       <div className="newMessageBox">
         <i className="fas fa-user-edit fa-4x newMessageIcon" />
@@ -42,15 +33,19 @@ class NewMessageBox extends React.Component {
         </form>
         <br />
         <div className="newMessageButtonDiv">
-          <button onClick={this.handleSubmit}>Post Message</button>
+          <button onClick={this.postMessage} className="buttonSize">
+            Post Message
+          </button>
           <br />
           <Link to="/messagefeed">
-            <button>Cancel</button>
+            <button className="buttonSize">Cancel</button>
           </Link>
         </div>
+        {loading && <Spinner name="circle" color="blue" />}
+        {error && <p style={{ color: "red" }}>{error.message}</p>}
       </div>
     );
   }
 }
 
-export default NewMessageBox;
+export default withAsyncAction("messages", "postMessage")(NewMessageBox);

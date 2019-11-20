@@ -20,3 +20,4 @@ export const DELETEMESSAGE = createActionTypes("DELETEMESSAGE");
 export const GETMESSAGELIST = createActionTypes("GETMESSAGELIST");
 export const GETONEMESSAGE = createActionTypes("GETONEMESSAGE");
 export const POSTMESSAGE = createActionTypes("POSTMESSAGE");
+export const GETUSER = createActionTypes("GETUSER");
