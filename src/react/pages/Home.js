@@ -5,9 +5,11 @@ import { userIsNotAuthenticated } from "../HOCs";
 class Home extends React.Component {
   render() {
     return (
-        <Menu />,
+      <>
+        <Menu />
         <LoginForm />
-    )
+      </>
+    );
   }
 }
 
