@@ -1,0 +1,17 @@
+.newMessageBox {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 1em;
+}
+
+.buttonSize {
+  background-color: #51eaea;
+  color: white;
+  border-radius: 1em;
+
+}
+
+textarea {
+  background-color: #240b4e;
+  border-radius: 1em;
+  border: 0;
+}
