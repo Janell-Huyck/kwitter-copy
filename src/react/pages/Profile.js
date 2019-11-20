@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, ProfileCard, SecondCard } from "../components";
+import { Menu, ProfileCard } from "../components";
 import { userIsAuthenticated } from "../HOCs";
 
 class Profile extends React.Component {
@@ -7,8 +7,7 @@ class Profile extends React.Component {
     return (
       <>
         <Menu isAuthenticated={this.props.isAuthenticated} />
-         <ProfileCard /> 
-
+        <ProfileCard />
       </>
     );
   }

@@ -6,6 +6,7 @@ const initialState = {
   loading: false,
   error: null
 };
+//all operations we make will need an initial state like above.
 
 const logout = (state = initialState, action) => {
   switch (action.type) {
@@ -15,3 +16,4 @@ const logout = (state = initialState, action) => {
 };
 
 export default withAsyncReducer(LOGOUT, logout);
+//withAsyncReducer is wrapping our reducer.

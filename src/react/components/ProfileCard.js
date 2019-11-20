@@ -21,7 +21,7 @@ class ProfileCard extends Component {
     render() {
         return (
             <>
-                <div id='profile-card'>
+                {/* <div id='profile-card'>
                     <div id='pfp'>
                         <img src={fakeUser.pictureLocation} alt='profile' />
                     </div>
@@ -29,15 +29,10 @@ class ProfileCard extends Component {
                     <p>{fakeUser.username}</p>
                     <p>joined: {date}</p>
                     <p id='userBio'>{fakeUser.about ? 'bio: ' + fakeUser.about : 'No bio provided by this user'}</p>
+                </div> */}
+                <div id = 'header'>
+                <img src = {}> </img>
                 </div>
-            </>
-        )
-    }
-}
-class SecondCard extends Component {
-    render () {
-        return (
-            <>
             </>
         )
     }
