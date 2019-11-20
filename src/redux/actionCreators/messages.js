@@ -7,22 +7,15 @@ import {
 } from "../actionTypes";
 
 const url = domain + "/messages";
-const messageId = "test-message-id"; //
-const messageData = "test-message-data";
 
-//*********************************** */
-//messageId needs to be determined still
-//messageData needs to be determined still
-//************************************ */
-
-export const deleteMessage = messageData => dispatch => {
+export const deleteMessage = messageId => dispatch => {
   dispatch({
     type: DELETEMESSAGE.START
   });
   return fetch(url + `/${messageId}`, {
     method: "DELETE",
     headers: jsonHeaders,
-    body: JSON.stringify(messageData)
+    body: JSON.stringify(messageId)
   })
     .then(handleJsonResponse)
     .then(result => {
@@ -67,7 +60,7 @@ export const getOneMessage = messageId => dispatch => {
   return fetch(url + `/${messageId}`, {
     method: "GET",
     headers: jsonHeaders,
-    body: JSON.stringify(messageData)
+    body: JSON.stringify(messageId)
   })
     .then(handleJsonResponse)
     .then(result => {
