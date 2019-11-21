@@ -1,6 +1,3 @@
-// hey group - this is copied from login.js and is intended as a sample to model
-//what we might want to do with our reducers.
-
 import { GETMESSAGELIST } from "../../actionTypes";
 import { withAsyncReducer } from "../../HORs";
 
