@@ -53,10 +53,10 @@ class CreateUser extends React.Component {
               onChange={this.handleChange}
               value={displayName}
             />
-            <Button size="huge" type="submit">
+            <Button style={{color: "#5A4576", marginTop: "1px"}} size="huge" type="submit">
               Register
             </Button>
-            <Link to="/" className="buttonSizeCreateUser">
+            <Link style={{marginLeft:"70px" }} to="/" className="buttonSizeCreateUser">
               Go Home
             </Link>
           </form>
