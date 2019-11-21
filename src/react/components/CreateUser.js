@@ -56,7 +56,7 @@ class CreateUser extends React.Component {
             <Button size="huge" type="submit">
               Register
             </Button>
-            <Link to="/" className="buttonSize">
+            <Link to="/" className="buttonSizeCreateUser">
               Go Home
             </Link>
           </form>

@@ -6,14 +6,7 @@ import { Input, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 class LoginForm extends React.Component {
-  state = {
-    onCreateAccount: false,
-    username: "",
-    password: "",
-    error: false,
-    errorMessage: "",
-    loading: false
-  };
+  state = { username: "", password: "" };
 
   handleLogin = e => {
     e.preventDefault();
@@ -25,10 +18,10 @@ class LoginForm extends React.Component {
   };
 
   render() {
-    const { error, username, password, loading } = this.state;
+    const { loading, error } = this.props;
     return (
-      <React.Fragment>
-        <div>
+      <div id="formStyle">
+        <React.Fragment>
           <form id="login-form" onSubmit={this.handleLogin}>
             <Input
               size="huge"
@@ -39,30 +32,30 @@ class LoginForm extends React.Component {
               autoFocus
               required
               onChange={this.handleChange}
-              value={username}
             />
+
             <Input
               size="huge"
               label="Password"
               type="password"
               name="password"
               placeholder="Enter your Password"
+              autoFocus
               required
               onChange={this.handleChange}
-              value={password}
             />
+
             <Button size="huge" type="submit" disabled={loading}>
               Login
             </Button>
-            <Link to="/register" className="buttonSize">
+            <Link to="/register" className="buttonSizeLogin">
               Create Account
             </Link>
           </form>
           {loading && <Spinner name="circle" color="blue" />}
           {error && <p style={{ color: "red" }}>{error.message}</p>}
-        </div>
-        <div id="formStyle"></div>
-      </React.Fragment>
+        </React.Fragment>
+      </div>
     );
   }
 }
