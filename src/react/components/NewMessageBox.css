@@ -8,11 +8,11 @@
   background-color: #51eaea;
   color: white;
   border-radius: 1em;
-
 }
 
 textarea {
   background-color: #240b4e;
   border-radius: 1em;
   border: 0;
+  color: white;
 }

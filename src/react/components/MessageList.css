@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
-  color: white
+  color: white;
   /* background-color: #160f30; */
 }
 
@@ -35,7 +35,6 @@
   color: black;
   margin: 20px;
   width: 650px;
-
 }
 
 .messageCard {
