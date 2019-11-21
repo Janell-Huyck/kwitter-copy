@@ -75,13 +75,16 @@ export const getOneMessage = messageId => dispatch => {
       );
     });
 };
-export const postMessage = messageData => dispatch => {
+
+export const postMessage = messageData => (dispatch, getState) => {
   dispatch({
     type: POSTMESSAGE.START
   });
+
+  const token = getState().auth.login.result.token;
   return fetch(url, {
     method: "POST",
-    headers: jsonHeaders,
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders },
     body: JSON.stringify(messageData)
   })
     .then(handleJsonResponse)
