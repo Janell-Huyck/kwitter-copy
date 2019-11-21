@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from ".";
 import { withAsyncAction } from "../HOCs";
 import { Spinner } from ".";
+import "./NewMessageBox.css"
 
 class NewMessageBox extends React.Component {
   state = { value: "" };
@@ -21,7 +22,7 @@ class NewMessageBox extends React.Component {
     const { loading, error } = this.props;
     return (
       <div className="newMessageBox">
-        <i className="fas fa-user-edit fa-4x newMessageIcon" />
+        <i className="fas fa-user-edit fa-4x newMessageIcon" color="white" />
         <form className="newMessageText">
           <textarea
             rows="7"
@@ -34,7 +35,7 @@ class NewMessageBox extends React.Component {
         <br />
         <div className="newMessageButtonDiv">
           <button onClick={this.postMessage} className="buttonSize">
-            Post Message
+            Send Kweet
           </button>
           <br />
           <Link to="/messagefeed">

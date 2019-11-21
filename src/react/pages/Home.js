@@ -7,7 +7,6 @@ class Home extends React.Component {
     return (
       <>
         <Menu />
-        {/* <h2>Your favorite microblogging platform</h2> */}
         <LoginForm />
       </>
     );
