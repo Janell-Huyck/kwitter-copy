@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from ".";
 import { withAsyncAction } from "../HOCs";
 import { Spinner } from ".";
-import "./NewMessageBox.css"
+import "./NewMessageBox.css";
+// import { connectedRouterRedirect } from "redux-auth-wrapper/history4/redirect";
 
 class NewMessageBox extends React.Component {
   state = { value: "" };
@@ -13,9 +14,11 @@ class NewMessageBox extends React.Component {
 
   postMessage = event => {
     event.preventDefault();
-    // console.log(this.state.value);
-    console.log(this);
-    this.props.postMessage({ text: this.state.value });
+    this.props
+      .postMessage({ text: this.state.value })
+      .then(this.setState({ value: "" }));
+
+    // .then(connectedRouterRedirect({ redirectPath: "/messagefeed" }));
   };
 
   render() {

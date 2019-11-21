@@ -79,9 +79,18 @@ export const postMessage = messageData => dispatch => {
   dispatch({
     type: POSTMESSAGE.START
   });
+  //********************************************************
+  //
+  //     the token below is hard coded until we can figure out how to
+  //      dynamically get the token from the Redux store.  a token HAS to
+  //      accompany all message posts.
+  //
+  //**********************************************************
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpYXQiOjE1NzQzMzUzODAsImV4cCI6MTU3NDQyMTc4MH0.nt6Yp6daziuZ6HXZsh4emkEhXPmoQsr10jum4Nej4qM";
   return fetch(url, {
     method: "POST",
-    headers: jsonHeaders,
+    headers: { ...jsonHeaders, Authorization: "Bearer " + token },
     body: JSON.stringify(messageData)
   })
     .then(handleJsonResponse)
