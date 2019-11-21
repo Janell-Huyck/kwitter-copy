@@ -30,12 +30,12 @@ export const deleteMessage = messageId => dispatch => {
       );
     });
 };
-
+//kwitter-api.herokuapp.com/messages?limit=100&offset=0&username=test
 export const getMessageList = messageData => dispatch => {
   dispatch({
     type: GETMESSAGELIST.START
   });
-  return fetch(url, {
+  return fetch(url + "?limit=30", {
     method: "GET",
     headers: jsonHeaders,
     body: JSON.stringify(messageData)
