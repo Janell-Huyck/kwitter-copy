@@ -1,12 +1,17 @@
 .newMessagePage {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  background-color: rgba(255, 255, 240, 0.7);
+  max-width: 60%;
+  border-radius: 1em;
+  padding: 1em;
 }
 .newMessageBox {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: auto;
+  color: black
 }
 
 .newMessageIcon {
@@ -29,4 +34,15 @@ textarea {
   grid-area: 5/2/6/6;
   display: flex;
   justify-content: space-around;
+}
+
+.buttonSize {
+  margin-top: 20px;
+  width: 150px;
+  height: 40px;
+  font-size: large;
+  margin-left: 35px;
+  font-weight: 100;
+  color: gray;
+  text-decoration-line: underline;
 }

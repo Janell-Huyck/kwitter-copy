@@ -1,21 +1,36 @@
-h2 {
-    margin-bottom: 0%;
-}
-p {
-    margin-top: 0%;
-}
-#profile-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 200px;
-    height: 300px;
-    background-color: rgb(231, 230, 230);
-    border-radius: 10%;
-    margin-top: 0.5%
-}
 img {
     border-radius: 100%;
+    margin: 10px;
     height: 150px;
     width: 150px;
+}
+#header2 {
+    margin-bottom: 0px;
+}
+p {
+    margin: 0px;
+    padding: 0px;
+}
+#pfp-card {
+    width: 350px;
+    height: 500px;
+    background-color: lightgray;
+}
+#user-names{
+    margin: 15px;
+}
+#user-info{
+    display: flex;
+    justify-content: center;
+}
+#counters {
+    display: flex;
+    justify-content: space-evenly;
+}
+#bio {
+    margin-left: 25px;
+}
+#kweets {
+    overflow: scroll;
+    height: 300px;
 }

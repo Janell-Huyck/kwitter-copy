@@ -1,0 +1,56 @@
+#register-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 20em;
+  margin: 20px;
+  align-items: center;
+  justify-content: center;
+}
+#root {
+  background-image: url(https://picjumbo.com/wp-content/uploads/free-stock-photos-san-francisco-1080x720.jpg);
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: grid;
+  justify-items: center;
+  box-sizing: border-box;
+  padding-bottom: 2em;
+}
+#formStyle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -300px;
+}
+.ui.labeled.input {
+  margin: 8px;
+  margin-bottom: 15px;
+  height: 60px;
+  width: 450px;
+}
+.ui.label.label {
+  width: 130px;
+}
+.ui.button {
+  height: 60px;
+  width: 450px;
+  margin-top: 20px;
+  font-size: 30em;
+}
+.buttonSizeCreateUser {
+  margin-top: 10px;
+  width: 150px;
+  height: 40px;
+  font-size: large;
+  margin-left: 35px;
+  font-weight: 100;
+  color: gray;
+  text-decoration-line: underline;
+}
+
+h1 {
+  font-size: 70px;
+  margin-top: 50px;
+}

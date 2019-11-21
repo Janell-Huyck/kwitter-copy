@@ -13,12 +13,16 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  display: grid;
+  justify-items: center;
+  box-sizing: border-box;
+  padding-bottom: 2em;
 }
 #formStyle {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: -300px;
 }
 .ui.labeled.input {
   margin: 8px;
@@ -35,13 +39,13 @@
   margin-top: 20px;
   font-size: 30em;
 }
-.buttonSize {
-  margin-top: 20px;
+.buttonSizeLogin {
+  margin-top: 10px;
   width: 150px;
   height: 40px;
   font-size: large;
   margin-left: 35px;
   font-weight: 100;
-  color:gray;
+  color: gray;
   text-decoration-line: underline;
 }
