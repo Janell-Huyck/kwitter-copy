@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './ProfileCard.css'
-import MessageList from './MessageList'
 
 
 const fakeUser = {
@@ -41,9 +40,6 @@ class ProfileCard extends Component {
                         <span>0 likes</span>
                     </div>
                     <div id='bio'>{fakeUser.about ? 'Bio: ' + fakeUser.about : 'No bio provided by this user'} </div>
-                    <div id='kweets'>
-                        <MessageList></MessageList>
-                    </div>
                 </div>
             </>
         )

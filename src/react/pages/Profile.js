@@ -1,6 +1,7 @@
 import React from "react";
-import { Menu, ProfileCard } from "../components";
+import { Menu, ProfileCard, MessageList } from "../components";
 import { userIsAuthenticated } from "../HOCs";
+// import { MessageList } from "semantic-ui-react";
 
 class Profile extends React.Component {
   render() {
@@ -8,6 +9,7 @@ class Profile extends React.Component {
       <>
         <Menu isAuthenticated={this.props.isAuthenticated} />
         <ProfileCard />
+        <MessageList />
       </>
     );
   }
