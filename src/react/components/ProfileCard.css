@@ -30,9 +30,7 @@ p {
 #bio {
     margin-left: 25px;
 }
-.MessageCard{
-        border: "1px solid black";
-        border-radius: "10px";
-        padding: "1em";
-        margin: "2em";
+#kweets {
+    overflow: scroll;
+    height: 300px;
 }
