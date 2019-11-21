@@ -10,31 +10,11 @@ const initialState = {
   error: null
 };
 
-const getInitStateFromStorage = (key, initialState) => {
-  const storedState = JSON.parse(localStorage.getItem(key));
-
-  if (storedState) {
-    const unchangedInitialStateProps =
-      Object.keys(storedState).every(
-        property => initialState[property] !== undefined
-      ) &&
-      Object.keys(initialState).every(
-        property => storedState[property] !== undefined
-      );
-    if (unchangedInitialStateProps) {
-      return storedState;
-    }
-  }
-  return initialState;
-};
-
-const getMessageList = (
-  state = getInitStateFromStorage("login", initialState),
-  action
-) => {
+const getMessageList = (state = initialState, action) => {
   switch (action.type) {
     case GETMESSAGELIST.SUCCESS:
-      return { ...initialState };
+      return { ...state, result: action.payload };
+
     default:
       return state;
   }
