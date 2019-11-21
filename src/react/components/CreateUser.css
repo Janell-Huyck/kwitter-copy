@@ -7,7 +7,7 @@
   justify-content: center;
 }
 #root {
-  background-image: url(https://picjumbo.com/wp-content/uploads/free-stock-photos-san-francisco-1080x720.jpg);
+  background-image: url('../../img/purpleBackground4.png');
   height: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;

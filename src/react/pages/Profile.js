@@ -1,15 +1,24 @@
 import React from "react";
-import { Menu, ProfileCard, MessageList } from "../components";
+import { Menu, ProfileCard, NewMessageBox } from "../components";
 import { userIsAuthenticated } from "../HOCs";
-// import { MessageList } from "semantic-ui-react";
 
 class Profile extends React.Component {
   render() {
     return (
       <>
-        <Menu isAuthenticated={this.props.isAuthenticated} />
-        <ProfileCard />
-        <MessageList />
+        <div className="page">
+          <div className="leftBoxexs">
+            <div className="leftTopBox">
+              <Menu isAuthenticated={this.props.isAuthenticated} />
+            </div>
+            <div className="leftBottomBox">
+              <NewMessageBox />
+            </div>
+          </div>
+          <div className="rightBox">
+            <ProfileCard />
+          </div>
+        </div>
       </>
     );
   }

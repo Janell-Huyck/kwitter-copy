@@ -1,3 +1,5 @@
+/* the page styling starts here */
+
 .page {
   display: flex;
   flex-direction: row;
@@ -28,6 +30,8 @@
   /* background-color: #240b4e; */
   border-radius: 1em;
 }
+
+/* the component styling starts here */
 
 .messageList {
   background-color: rgba(255, 255, 255, 0.3);
