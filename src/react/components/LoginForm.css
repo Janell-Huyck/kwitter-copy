@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: -300px;
 }
 .ui.labeled.input {
   margin: 8px;
@@ -39,8 +39,8 @@
   margin-top: 20px;
   font-size: 30em;
 }
-.createAccountButton {
-  margin-top: 20px;
+.buttonSizeLogin {
+  margin-top: 10px;
   width: 150px;
   height: 40px;
   font-size: large;
