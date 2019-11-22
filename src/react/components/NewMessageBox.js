@@ -28,6 +28,7 @@ class NewMessageBox extends React.Component {
         <i className="fas fa-user-edit fa-4x newMessageIcon" color="white" />
         <form className="newMessageText">
           <textarea
+            placeholder="What's Happening . . ."
             rows="7"
             columns="500"
             onChange={this.handleChange}

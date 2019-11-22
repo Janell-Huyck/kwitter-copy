@@ -9,11 +9,10 @@ class MessageFeed extends React.Component {
         <div className="page">
           <div className="leftBox">
             <Menu isAuthenticated={this.props.isAuthenticated} />
-            <h2>This is the post side</h2>
+            <h2>Create New Message</h2>
             <NewMessageBox />
           </div>
           <div className="rightBox">
-            <h2>This is the messages page</h2>
             <MessageList />
           </div>
         </div>
