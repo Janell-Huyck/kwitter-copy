@@ -12,13 +12,6 @@ const fakeUser = {
     createdAt: '2019-11-18T15:10:16.100Z',
     updatedAt: ''
 };
-const month = fakeUser.createdAt.split('-').splice(1, 1)
-const year = fakeUser.createdAt.split('-').splice(0, 1)
-const day = fakeUser.createdAt.slice(0, fakeUser.createdAt.indexOf('T')).split('-').reverse().shift()
-const date = month + '-' + day + '-' + year
-
-const date2 = fakeUser.createdAt.slice(0, fakeUser.createdAt.indexOf('T')).split('-').reverse()
-console.log(date2)
 class ProfileCard extends Component {
     render() {
         return (
@@ -31,7 +24,7 @@ class ProfileCard extends Component {
                                 <h2>{fakeUser.displayName}</h2>
                             </div>
                             <p>{fakeUser.username}</p>
-                            <h4>joined: {date}</h4>
+                            <h4>joined: {new Date(fakeUser.createdAt).toDateString()}</h4>
                         </div>
                     </div>
                     <div id='counters'>
