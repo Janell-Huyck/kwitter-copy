@@ -11,7 +11,7 @@ class MessageCard extends React.Component {
         </div>
         <div className="messageFooter">
           <div>Like</div>
-          <div> X Likes</div>
+          <div>{`${this.props.likes.length}`} Likes</div>
           <div>Delete</div>
         </div>
       </React.Fragment>
