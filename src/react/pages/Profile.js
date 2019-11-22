@@ -7,14 +7,11 @@ class Profile extends React.Component {
     return (
       <>
         <div className="page">
-          <div className="leftBoxexs">
-            <div className="leftTopBox">
+          <div className="leftBox">
               <Menu isAuthenticated={this.props.isAuthenticated} />
-            </div>
-            <div className="leftBottomBox">
+              <h2>Create New Message</h2>
               <NewMessageBox />
             </div>
-          </div>
           <div className="rightBox">
             <ProfileCard />
           </div>

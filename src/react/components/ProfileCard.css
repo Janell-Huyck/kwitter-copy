@@ -12,13 +12,16 @@ p {
   padding: 0px;
 }
 #pfp-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1em;
   width: 600px;
-  height: 500px;
-  background-color: lightgray;
+  height: 100vh;
   margin-top: 20px;
   margin-bottom: 20px;
-  border-radius: 1em;
-  height: 100vh;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 25px;
 }
 #user-names {
   margin: 15px;
@@ -35,10 +38,10 @@ p {
   margin-left: 25px;
 }
 #kweets {
-  overflow: scroll;
-  height: 500px;
+  /* overflow: auto; */
+  height: 100%;
   border-radius: 1em;
-  width: 575px;
+  width: 100%;
 }
 
 /* The full page styling starts here */
@@ -48,12 +51,11 @@ p {
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
-  color: white;
 }
 
-.leftBoxes {
+.leftBox {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     background-color: #240b4e;
     width: 300px;
@@ -62,22 +64,21 @@ p {
 
 .leftBottomBox {
     display: flex;
-    width: 700px;
+    width: 50vh;
     height: 100vh;
     flex-direction: column;
     align-items: center;
-    /* margin-right: 5px; */
-    /* background-color: #240b4e; */
+    background-color: #240b4e;
     border-radius: 1em;
+
   }
   
   .rightBox {
     display: flex;
-    width: 700px;
+    width: 100vh;
     height: 100vh;
     flex-direction: column;
     align-items: center;
-    /* margin-left: 5px; */
-    /* background-color: #240b4e; */
+    background-color: #240b4e;
     border-radius: 1em;
   }
