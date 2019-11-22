@@ -22,9 +22,7 @@ class LoginForm extends React.Component {
     return (
       <div id="formStyle">
         <React.Fragment>
-          
           <form id="login-form" onSubmit={this.handleLogin}>
-            
             <Input
               size="huge"
               label="Username"
@@ -45,16 +43,24 @@ class LoginForm extends React.Component {
               onChange={this.handleChange}
             />
 
-            <Button style={{color: "#5A4576",marginTop: "4px"}} size="huge" type="submit" disabled={loading}>
+            <Button
+              style={{ color: "#5A4576", marginTop: "4px" }}
+              size="huge"
+              type="submit"
+              disabled={loading}
+            >
               Login
             </Button>
             <Link to="/register" className="buttonSizeLogin">
               Create Account
             </Link>
-            {error && <p style={{ marginTop: "10px", color: "red" ,fontSize:"20px" }}>{error.message}</p>}
+            {error && (
+              <p style={{ marginTop: "10px", color: "red", fontSize: "20px" }}>
+                {error.message}
+              </p>
+            )}
           </form>
           {loading && <Spinner name="circle" color="blue" />}
-          
         </React.Fragment>
       </div>
     );

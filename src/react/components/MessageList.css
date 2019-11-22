@@ -5,7 +5,7 @@
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
-  color: white
+  color: white;
   /* background-color: #160f30; */
 }
 
@@ -50,4 +50,11 @@
   border: 6px solid #380e7f;
   padding: 1em;
   margin: 2em;
+}
+
+.messageFooter {
+  border: 1px solid white;
+  border-radius: 1em;
+  display: flex;
+  justify-content: space-around;
 }
