@@ -7,6 +7,7 @@
   padding: 0 1em;
   border-radius: 1em;
   justify-content: center;
+  flex-direction: row;
 }
 
 #menu-links {
@@ -21,6 +22,6 @@
   cursor: pointer;
 }
 #menu > h1 {
-  font-size: 70px;
-  margin-top: 50px;
+  font-size: 80px;
+  margin-top: 8px;
 }

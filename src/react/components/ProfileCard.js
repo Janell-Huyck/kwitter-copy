@@ -35,7 +35,7 @@ class ProfileCard extends Component {
                     </div>
                     <div id='bio'>{fakeUser.about ? 'Bio: ' + fakeUser.about : 'No bio provided by this user'} </div>
                     <div id='kweets'>
-                        <MessageList></MessageList>
+                        <MessageList/>
                     </div>
                 </div>
             </>
