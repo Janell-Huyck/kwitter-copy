@@ -6,9 +6,9 @@ class MessageFeed extends React.Component {
   render() {
     return (
       <>
-        <Menu isAuthenticated={this.props.isAuthenticated} />
         <div className="page">
           <div className="leftBox">
+            <Menu isAuthenticated={this.props.isAuthenticated} />
             <h2>This is the post side</h2>
             <NewMessageBox />
           </div>
