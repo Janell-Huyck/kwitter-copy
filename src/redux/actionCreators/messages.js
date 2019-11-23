@@ -2,7 +2,7 @@ import { domain, jsonHeaders, handleJsonResponse } from "./constants";
 import {
   DELETEMESSAGE,
   GETMESSAGELIST,
-  GETONEMESSAGE,
+  // GETONEMESSAGE,
   POSTMESSAGE
 } from "../actionTypes";
 
@@ -53,28 +53,28 @@ export const getMessageList = messageData => dispatch => {
       );
     });
 };
-export const getOneMessage = messageId => dispatch => {
-  dispatch({
-    type: GETONEMESSAGE.START
-  });
-  return fetch(url + `/${messageId}`, {
-    method: "GET",
-    headers: jsonHeaders,
-    body: JSON.stringify(messageId)
-  })
-    .then(handleJsonResponse)
-    .then(result => {
-      return dispatch({
-        type: GETONEMESSAGE.SUCCESS,
-        payload: result
-      });
-    })
-    .catch(err => {
-      return Promise.reject(
-        dispatch({ type: GETONEMESSAGE.FAIL, payload: err })
-      );
-    });
-};
+// export const getOneMessage = messageId => dispatch => {
+//   dispatch({
+//     type: GETONEMESSAGE.START
+//   });
+//   return fetch(url + `/${messageId}`, {
+//     method: "GET",
+//     headers: jsonHeaders,
+//     body: JSON.stringify(messageId)
+//   })
+//     .then(handleJsonResponse)
+//     .then(result => {
+//       return dispatch({
+//         type: GETONEMESSAGE.SUCCESS,
+//         payload: result
+//       });
+//     })
+//     .catch(err => {
+//       return Promise.reject(
+//         dispatch({ type: GETONEMESSAGE.FAIL, payload: err })
+//       );
+//     });
+// };
 export const postMessage = messageData => dispatch => {
   dispatch({
     type: POSTMESSAGE.START

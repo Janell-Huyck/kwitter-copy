@@ -18,6 +18,7 @@ class MessageList extends React.Component {
           return (
             <div className="messageCard" key={message.id}>
               <MessageCard
+                id={message.id}
                 username={message.username}
                 text={message.text}
                 createdAt={message.createdAt}
