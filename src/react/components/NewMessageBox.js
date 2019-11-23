@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from ".";
 import { withAsyncAction } from "../HOCs";
 import { Spinner } from ".";
-import "./NewMessageBox.css";
 
 class NewMessageBox extends React.Component {
   state = { value: "" };
@@ -16,6 +15,10 @@ class NewMessageBox extends React.Component {
     this.props
       .postMessage({ text: this.state.value })
       .then(this.setState({ value: "" }));
+  };
+
+  handleCancel = event => {
+    this.setState({ value: "" });
   };
 
   render() {
@@ -35,13 +38,12 @@ class NewMessageBox extends React.Component {
         </form>
         <br />
         <div className="newMessageButtonDiv">
-          <button onClick={this.postMessage} className="buttonSize">
+          <button onClick={this.postMessage} className="newMessageButton">
             Send Kweet
           </button>
-          <br />
-          <Link to="/messagefeed">
-            <button className="buttonSize">Cancel</button>
-          </Link>
+          <button className="newMessageButton" onClick={this.handleCancel}>
+            Cancel
+          </button>
         </div>
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}

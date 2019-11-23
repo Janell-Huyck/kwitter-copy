@@ -1,11 +1,15 @@
 import React from "react";
 import { withAsyncAction } from "../HOCs";
 
+const username = JSON.parse(localStorage.login).result.username;
 class UnlikeMessage extends React.Component {
   unlikeMessage = event => {
     event.preventDefault();
-    this.props.unlikeMessage(this.props.id);
-    //and then, change the display to a "like message" symbol/words
+    this.props.likes.forEach(like => {
+      if (like.username === username) {
+        this.props.unlikeMessage(like.id);
+      }
+    });
   };
 
   render() {

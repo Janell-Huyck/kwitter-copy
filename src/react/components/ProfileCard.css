@@ -4,18 +4,18 @@ img {
   height: 150px;
   width: 150px;
 }
-#header2 {
+h2 {
   margin-bottom: 0px;
 }
 p {
   margin: 0px;
   padding: 0px;
 }
-#pfp-card {
+.pfp-card {
   display: flex;
   flex-direction: column;
   border-radius: 1em;
-  width: 600px;
+  width: 45%;
   height: 100vh;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -23,21 +23,21 @@ p {
   padding-right: 10px;
   padding-bottom: 25px;
 }
-#user-names {
+.user-names {
   margin: 15px;
 }
-#user-info {
+.user-info {
   display: flex;
   justify-content: center;
 }
-#counters {
+.counters {
   display: flex;
   justify-content: space-evenly;
 }
-#bio {
+.bio {
   margin-left: 25px;
 }
-#kweets {
+.kweets {
   /* overflow: auto; */
   height: 100%;
   border-radius: 1em;
@@ -46,39 +46,14 @@ p {
 
 /* The full page styling starts here */
 
-.page {
+/* .leftBottomBox {
+  flex-grow: 1;
+  flex-shrink: 1;
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 100%;
-}
-
-.leftBox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #240b4e;
-    width: 300px;
-    height: 100vh;
-}
-
-.leftBottomBox {
-    display: flex;
-    width: 50vh;
-    height: 100vh;
-    flex-direction: column;
-    align-items: center;
-    background-color: #240b4e;
-    border-radius: 1em;
-
-  }
-  
-  .rightBox {
-    display: flex;
-    width: 100vh;
-    height: 100vh;
-    flex-direction: column;
-    align-items: center;
-    background-color: #240b4e;
-    border-radius: 1em;
-  }
+  width: 50vh;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  background-color: #240b4e;
+  border-radius: 1em;
+} */

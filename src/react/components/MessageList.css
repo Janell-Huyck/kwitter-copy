@@ -1,28 +1,19 @@
-/* the page styling starts here */
-
-.page {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 100%;
-  color: white;
-  /* background-color: #160f30; */
-}
+/* page styling here */
 
 .leftBox {
   display: flex;
-  width: 700px;
+  width: 45%;
   height: 100vh;
   flex-direction: column;
   align-items: center;
-  /* margin-right: 5px; */
-  /* background-color: #240b4e; */
+  margin-right: 5px;
+  background-color: #240b4e;
   border-radius: 1em;
 }
 
 .rightBox {
   display: flex;
-  width: 700px;
+  width: 45%;
   height: 100vh;
   flex-direction: column;
   align-items: center;
@@ -55,6 +46,8 @@
 }
 
 .messageFooter {
+  display: flex;
+  flex-direction: row;
   border: 1px solid white;
   border-radius: 1em;
   display: flex;

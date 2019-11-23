@@ -1,0 +1,26 @@
+.page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100vh;
+}
+
+.leftBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #240b4e;
+  width: 45%;
+  height: 100%;
+}
+
+.rightBox {
+  display: flex;
+  width: 45%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  background-color: #240b4e;
+  border-radius: 1em;
+}

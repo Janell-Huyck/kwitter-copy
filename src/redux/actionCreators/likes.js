@@ -28,17 +28,15 @@ export const likeMessage = messageId => dispatch => {
     });
 };
 
-export const unlikeMessage = messageId => dispatch => {
+export const unlikeMessage = likeId => dispatch => {
   dispatch({
     type: UNLIKEMESSAGE.START
   });
 
   const token = JSON.parse(localStorage.login).result.token;
-
-  return fetch(url + `/${messageId}`, {
+  return fetch(url + `/` + likeId, {
     method: "DELETE",
     headers: { ...jsonHeaders, Authorization: "Bearer " + token }
-    // body: JSON.stringify(messageId)
   })
     .then(handleJsonResponse)
     .then(result => {

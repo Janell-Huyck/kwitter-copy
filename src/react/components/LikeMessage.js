@@ -4,8 +4,7 @@ import { withAsyncAction } from "../HOCs";
 class LikeMessage extends React.Component {
   likeMessage = event => {
     event.preventDefault();
-    this.props.likeMessage({ messageId: this.props.id });
-    //and then, change the display to an "unlike message" symbol/words;
+    this.props.likeMessage({ messageId: this.props.messageId });
   };
 
   render() {
