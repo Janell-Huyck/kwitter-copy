@@ -2,7 +2,7 @@ import React from "react";
 import MessageCard from "./MessageCard";
 import "./MessageList.css";
 import { withAsyncAction } from "../HOCs";
-import { Spinner } from "../components";
+import { Spinner } from ".";
 
 class MessageList extends React.Component {
   componentDidMount = () => {

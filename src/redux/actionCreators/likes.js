@@ -4,12 +4,10 @@ import { UNLIKEMESSAGE } from "../actionTypes";
 
 const url = domain + "/likes";
 
-export const likeMessage = messageId => dispatch => {
+export const likeMessage = (messageId, token) => dispatch => {
   dispatch({
     type: LIKEMESSAGE.START
   });
-
-  const token = JSON.parse(localStorage.login).result.token;
 
   return fetch(url, {
     method: "POST",
@@ -28,12 +26,11 @@ export const likeMessage = messageId => dispatch => {
     });
 };
 
-export const unlikeMessage = likeId => dispatch => {
+export const unlikeMessage = (likeId, token) => dispatch => {
   dispatch({
     type: UNLIKEMESSAGE.START
   });
 
-  const token = JSON.parse(localStorage.login).result.token;
   return fetch(url + `/` + likeId, {
     method: "DELETE",
     headers: { ...jsonHeaders, Authorization: "Bearer " + token }

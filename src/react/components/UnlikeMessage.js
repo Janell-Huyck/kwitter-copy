@@ -1,13 +1,13 @@
 import React from "react";
 import { withAsyncAction } from "../HOCs";
+import { connect } from "react-redux";
 
-const username = JSON.parse(localStorage.login).result.username;
 class UnlikeMessage extends React.Component {
   unlikeMessage = event => {
     event.preventDefault();
     this.props.likes.forEach(like => {
-      if (like.username === username) {
-        this.props.unlikeMessage(like.id);
+      if (like.username === this.props.username) {
+        this.props.unlikeMessage(like.id, this.props.token);
       }
     });
   };
@@ -17,4 +17,13 @@ class UnlikeMessage extends React.Component {
   }
 }
 
-export default withAsyncAction("likes", "unlikeMessage")(UnlikeMessage);
+const mapStateToProps = state => {
+  return {
+    token: state.auth.login.result.token,
+    username: state.auth.login.result.username
+  };
+};
+
+export default connect(mapStateToProps)(
+  withAsyncAction("likes", "unlikeMessage")(UnlikeMessage)
+);

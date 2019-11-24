@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from ".";
 import { withAsyncAction } from "../HOCs";
 import { Spinner } from ".";
+import "./NewMessage.css";
 
 class NewMessageBox extends React.Component {
   state = { value: "" };
