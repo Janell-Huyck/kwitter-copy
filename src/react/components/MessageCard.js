@@ -1,4 +1,4 @@
-import React, { ReactFragment } from "react";
+import React from "react";
 
 class MessageCard extends React.Component {
   render() {
