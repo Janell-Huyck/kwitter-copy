@@ -1,4 +1,4 @@
-import { GETMESSAGELIST } from "../../actionTypes";
+import { GETMESSAGES } from "../../actionTypes";
 import { withAsyncReducer } from "../../HORs";
 
 const initialState = {
@@ -7,9 +7,9 @@ const initialState = {
   error: null
 };
 
-const getMessageList = (state = initialState, action) => {
+const getMessages = (state = initialState, action) => {
   switch (action.type) {
-    case GETMESSAGELIST.SUCCESS:
+    case GETMESSAGES.SUCCESS:
       return { ...state, result: action.payload };
 
     default:
@@ -17,4 +17,4 @@ const getMessageList = (state = initialState, action) => {
   }
 };
 
-export default withAsyncReducer(GETMESSAGELIST, getMessageList);
+export default withAsyncReducer(GETMESSAGES, getMessages);
