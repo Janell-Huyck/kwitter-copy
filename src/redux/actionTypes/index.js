@@ -17,7 +17,7 @@ const createActionTypes = actionName => {
 export const LOGIN = createActionTypes("LOGIN");
 export const LOGOUT = createActionTypes("LOGOUT");
 export const DELETEMESSAGE = createActionTypes("DELETEMESSAGE");
-export const GETMESSAGELIST = createActionTypes("GETMESSAGELIST");
+export const GETMESSAGES = createActionTypes("GETMESSAGES");
 export const GETONEMESSAGE = createActionTypes("GETONEMESSAGE");
 export const POSTMESSAGE = createActionTypes("POSTMESSAGE");
 export const GETUSER = createActionTypes("GETUSER");
