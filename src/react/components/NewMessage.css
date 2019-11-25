@@ -1,17 +1,23 @@
-.newMessagePage {
+.newMessageArea {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   background-color: rgba(255, 255, 240, 0.7);
   max-width: 60%;
-  border-radius: 1em;
+  /* border-radius: 1em; */
   padding: 1em;
+}
+.newMessageArea h2 {
+  color: white;
 }
 .newMessageBox {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: auto;
-  color: black
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 1em;
+  height: 100%;
+  padding: 10px;
 }
 
 .newMessageIcon {
@@ -21,6 +27,12 @@
 }
 
 textarea {
+  border-radius: 1em;
+  border: 0;
+  color: black;
+  border: 6px solid #431199;
+  padding: 1em;
+  margin: 2em;
   width: 100%;
 }
 
@@ -28,6 +40,7 @@ textarea {
   grid-area: 1/2/5/6;
   height: auto;
   width: auto;
+  color: black;
 }
 
 .newMessageButtonDiv {
@@ -36,12 +49,8 @@ textarea {
   justify-content: space-around;
 }
 
-.buttonSize {
-  margin-top: 20px;
-  width: 150px;
-  height: 40px;
-  font-size: large;
-  margin-left: 35px;
-  font-weight: 100;
- text-decoration-line: underline;
+.newMessageButton {
+  background-color: #51eaea;
+  color: black;
+  border-radius: 1em;
 }
