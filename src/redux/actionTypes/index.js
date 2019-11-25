@@ -21,3 +21,5 @@ export const GETMESSAGELIST = createActionTypes("GETMESSAGELIST");
 export const GETONEMESSAGE = createActionTypes("GETONEMESSAGE");
 export const POSTMESSAGE = createActionTypes("POSTMESSAGE");
 export const GETUSER = createActionTypes("GETUSER");
+export const LIKEMESSAGE = createActionTypes("LIKEMESSAGE");
+export const UNLIKEMESSAGE = createActionTypes("UNLIKEMESSAGE");

@@ -1,6 +1,7 @@
 import React from "react";
-import { Menu, MessageList, NewMessageBox } from "../components";
+import { Menu, NewMessageBox, MessageList } from "../components";
 import { userIsAuthenticated } from "../HOCs";
+import "./MessageFeed.css";
 
 class MessageFeed extends React.Component {
   render() {
@@ -9,7 +10,7 @@ class MessageFeed extends React.Component {
         <div className="page">
           <div className="leftBox">
             <Menu isAuthenticated={this.props.isAuthenticated} />
-            <h2>Create New Message</h2>
+            <h3>Create New Kweet Below...</h3>
             <NewMessageBox />
           </div>
           <div className="rightBox">
