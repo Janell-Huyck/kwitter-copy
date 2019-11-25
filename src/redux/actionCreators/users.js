@@ -11,7 +11,6 @@ export const getUser = userName => dispatch => {
   return fetch(url + "/" + userName, {
     method: "GET",
     headers: jsonHeaders
-    // body: JSON.stringify(userName)   // - this isn't on the demo
   })
     .then(handleJsonResponse)
     .then(result => {

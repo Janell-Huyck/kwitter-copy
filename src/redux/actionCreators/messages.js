@@ -2,7 +2,7 @@ import { domain, jsonHeaders, handleJsonResponse } from "./constants";
 import {
   DELETEMESSAGE,
   GETMESSAGELIST,
-  GETONEMESSAGE,
+  // GETONEMESSAGE,
   POSTMESSAGE
 } from "../actionTypes";
 
@@ -53,41 +53,35 @@ export const getMessageList = messageData => dispatch => {
       );
     });
 };
-export const getOneMessage = messageId => dispatch => {
-  dispatch({
-    type: GETONEMESSAGE.START
-  });
-  return fetch(url + `/${messageId}`, {
-    method: "GET",
-    headers: jsonHeaders,
-    body: JSON.stringify(messageId)
-  })
-    .then(handleJsonResponse)
-    .then(result => {
-      return dispatch({
-        type: GETONEMESSAGE.SUCCESS,
-        payload: result
-      });
-    })
-    .catch(err => {
-      return Promise.reject(
-        dispatch({ type: GETONEMESSAGE.FAIL, payload: err })
-      );
-    });
-};
+// export const getOneMessage = messageId => dispatch => {
+//   dispatch({
+//     type: GETONEMESSAGE.START
+//   });
+//   return fetch(url + `/${messageId}`, {
+//     method: "GET",
+//     headers: jsonHeaders,
+//     body: JSON.stringify(messageId)
+//   })
+//     .then(handleJsonResponse)
+//     .then(result => {
+//       return dispatch({
+//         type: GETONEMESSAGE.SUCCESS,
+//         payload: result
+//       });
+//     })
+//     .catch(err => {
+//       return Promise.reject(
+//         dispatch({ type: GETONEMESSAGE.FAIL, payload: err })
+//       );
+//     });
+// };
 export const postMessage = messageData => dispatch => {
   dispatch({
     type: POSTMESSAGE.START
   });
-  //********************************************************
-  //
-  //     the token below is hard coded until we can figure out how to
-  //      dynamically get the token from the Redux store.  a token HAS to
-  //      accompany all message posts.
-  //
-  //**********************************************************
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpYXQiOjE1NzQzMzUzODAsImV4cCI6MTU3NDQyMTc4MH0.nt6Yp6daziuZ6HXZsh4emkEhXPmoQsr10jum4Nej4qM";
+
+  const token = JSON.parse(localStorage.login).result.token;
+
   return fetch(url, {
     method: "POST",
     headers: { ...jsonHeaders, Authorization: "Bearer " + token },
