@@ -74,9 +74,6 @@ const mapStateToProps = state => {
 };
 
 
-//**************************************
-//stopping point: mapDispatchToProps is not working - it says getUser is undefined
-//************************************** */ * /
 const mapDispatchToProps = {
   getUser
 };
