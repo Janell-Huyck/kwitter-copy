@@ -1,6 +1,7 @@
 import React from "react";
 import { Menu, NewMessageBox, MessageList } from "../components";
 import { userIsAuthenticated } from "../HOCs";
+import "./MessageFeed.css";
 
 class MessageFeed extends React.Component {
   render() {

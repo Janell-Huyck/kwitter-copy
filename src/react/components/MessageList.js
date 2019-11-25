@@ -3,9 +3,14 @@ import MessageCard from "./MessageCard";
 import "./MessageList.css";
 import { withAsyncAction } from "../HOCs";
 import { Spinner } from ".";
+import { connect } from "react-redux";
 
 class MessageList extends React.Component {
   componentDidMount = () => {
+    this.props.getMessageList();
+  };
+
+  getMessageList = () => {
     this.props.getMessageList();
   };
 
@@ -31,4 +36,18 @@ class MessageList extends React.Component {
     );
   }
 }
-export default withAsyncAction("messages", "getMessageList")(MessageList);
+
+const mapStateToProps = state => {
+  return {};
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    // getMessageList()
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withAsyncAction("messages", "getMessageList")(MessageList));

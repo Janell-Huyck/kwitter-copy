@@ -21,8 +21,12 @@ class Profile extends React.Component {
           )}
         </div>
         <div className="rightBox">
-          <ProfileCard username={this.props.match.params.username} />
-          <MessageList className="kweets" />
+          <div className="profileCard">
+            <ProfileCard profilename={this.props.match.params.username} />
+          </div>
+          <div className="profileMessageList">
+            <MessageList />
+          </div>
         </div>
       </div>
     );

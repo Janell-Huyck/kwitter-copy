@@ -11,16 +11,27 @@
   flex-direction: column;
   align-items: center;
   background-color: #240b4e;
-  width: 45%;
+  width: 30%;
   height: 100%;
+  border-radius: 1em;
+  color: white;
 }
 
 .rightBox {
   display: flex;
-  width: 45%;
+  width: 65%;
   height: 100%;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   background-color: #240b4e;
   border-radius: 1em;
+  padding: 20px;
+}
+
+.profileCard {
+  height: 60%;
+}
+
+.profileMessageList {
+  height: 40%;
 }
