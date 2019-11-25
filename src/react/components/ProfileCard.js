@@ -73,36 +73,6 @@ const mapStateToProps = state => {
   } else return {};
 };
 
-class ProfileCard extends Component {
-    render() {
-        return (
-            <>
-                <div id='pfp-card'>
-                    <div id='user-info'>
-                        <img src={fakeUser.pictureLocation} alt='user profile' />
-                        <div id='user-names'>
-                            <div id='header2'>
-                                <h2>{fakeUser.displayName}</h2>
-                            </div>
-                            <p>{fakeUser.username}</p>
-                            <h4>joined: {new Date(fakeUser.createdAt).toDateString()}</h4>
-                        </div>
-                    </div>
-                    <div id='counters'>
-                        <span>0 kweets</span>
-                        <span>0 following</span>
-                        <span>0 followers</span>
-                        <span>0 likes</span>
-                    </div>
-                    <div id='bio'>{fakeUser.about ? 'Bio: ' + fakeUser.about : 'No bio provided by this user'} </div>
-                    <div id='kweets'>
-                        <MessageList/>
-                    </div>
-                </div>
-            </>
-        )
-    }
-}
 
 //**************************************
 //stopping point: mapDispatchToProps is not working - it says getUser is undefined
