@@ -51,9 +51,9 @@ class LoginForm extends React.Component {
             >
               Login
             </Button>
-            <Link to="/register" className="buttonSizeLogin">
+            {/* <Link to="/register" className="buttonSizeLogin">
               Create Account
-            </Link>
+            </Link> */}
             {error && (
               <p style={{ marginTop: "10px", color: "red", fontSize: "20px" }}>
                 {error.message}
