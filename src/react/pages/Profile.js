@@ -1,27 +1,44 @@
 import React from "react";
-import { Menu, ProfileCard, NewMessageBox } from "../components";
+import { Menu, ProfileCard, NewMessageBox, MessageList } from "../components";
 import { userIsAuthenticated } from "../HOCs";
+import "./Profile.css";
+import { connect } from "react-redux";
 
 class Profile extends React.Component {
   render() {
     return (
-      <>
-        <div className="page">
-          <div className="leftBoxexs">
-            <div className="leftTopBox">
-              <Menu isAuthenticated={this.props.isAuthenticated} />
-            </div>
-            <div className="leftBottomBox">
+      <div className="page">
+        <div className="leftBox">
+          <Menu
+            isAuthenticated={this.props.isAuthenticated}
+            username={this.props.match.params.username}
+          />
+          {this.props.username === this.props.match.params.username && (
+            <div>
+              <h3>Create New Kweet Below...</h3>
               <NewMessageBox />
             </div>
+          )}
+        </div>
+        <div className="rightBox">
+          <div className="profileCard">
+            <ProfileCard profilename={this.props.match.params.username} />
           </div>
-          <div className="rightBox">
-            <ProfileCard />
+          <div className="profileMessageList">
+            <MessageList />
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }
 
-export default userIsAuthenticated(Profile);
+const mapStateToProps = state => {
+  if (state.auth.login.result) {
+    return {
+      username: state.auth.login.result.username
+    };
+  } else return {};
+};
+
+export default connect(mapStateToProps)(userIsAuthenticated(Profile));
