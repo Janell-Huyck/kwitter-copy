@@ -3,7 +3,6 @@ import { Spinner } from ".";
 import { withAsyncAction } from "../HOCs";
 import "./LoginForm.css";
 import { Input, Button } from "semantic-ui-react";
-import { Link } from "react-router-dom";
 
 class LoginForm extends React.Component {
   state = { username: "", password: "" };
@@ -51,9 +50,6 @@ class LoginForm extends React.Component {
             >
               Login
             </Button>
-            {/* <Link to="/register" className="buttonSizeLogin">
-              Create Account
-            </Link> */}
             {error && (
               <p style={{ marginTop: "10px", color: "red", fontSize: "20px" }}>
                 {error.message}
