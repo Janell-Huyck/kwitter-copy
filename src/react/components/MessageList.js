@@ -3,15 +3,9 @@ import MessageCard from "./MessageCard";
 import "./MessageList.css";
 import { withAsyncAction } from "../HOCs";
 import { Spinner } from ".";
-import { connect } from "react-redux";
-import { getMessages } from "../../redux/actionCreators";
 
 class MessageList extends React.Component {
   componentDidMount = () => {
-    this.props.getMessages();
-  };
-
-  getMessages = () => {
     this.props.getMessages();
   };
 
@@ -19,6 +13,7 @@ class MessageList extends React.Component {
     return !this.props.result ? (
       <Spinner />
     ) : (
+      // ) : !this.props.messageFilter ? (
       <div className="messageList">
         {this.props.result.messages.map(message => {
           return (
@@ -34,21 +29,27 @@ class MessageList extends React.Component {
           );
         })}
       </div>
+      // ) : (
+      //   <div>
+      //     {this.props.result.messages
+      //       .filter(message => message.username === this.props.messageFilter)
+
+      //       .map(message => {
+      //         return (
+      //           <div className="messageCard" key={message.id}>
+      //             <MessageCard
+      //               id={message.id}
+      //               username={message.username}
+      //               text={message.text}
+      //               createdAt={message.createdAt}
+      //               likes={message.likes}
+      //             />
+      //           </div>
+      //         );
+      //       })}
+      //   </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {};
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    getMessages
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withAsyncAction("messages", "getMessages")(MessageList));
+export default withAsyncAction("messages", "getMessages")(MessageList);

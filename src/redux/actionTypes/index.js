@@ -14,12 +14,19 @@ const createActionTypes = actionName => {
   };
 };
 
+//auth
 export const LOGIN = createActionTypes("LOGIN");
 export const LOGOUT = createActionTypes("LOGOUT");
+//messages
 export const DELETEMESSAGE = createActionTypes("DELETEMESSAGE");
 export const GETMESSAGES = createActionTypes("GETMESSAGES");
-export const GETONEMESSAGE = createActionTypes("GETONEMESSAGE");
+export const GETSPECIFICUSERMESSAGES = createActionTypes(
+  "GETSPECIFICUSERMESSAGES"
+);
 export const POSTMESSAGE = createActionTypes("POSTMESSAGE");
-export const GETUSER = createActionTypes("GETUSER");
+//likes
 export const LIKEMESSAGE = createActionTypes("LIKEMESSAGE");
 export const UNLIKEMESSAGE = createActionTypes("UNLIKEMESSAGE");
+//users
+export const GETUSER = createActionTypes("GETUSER");
+export const POSTUSER = createActionTypes("POSTUSER");

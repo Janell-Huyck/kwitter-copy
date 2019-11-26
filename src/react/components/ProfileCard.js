@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import "./ProfileCard.css";
 import { withAsyncAction } from "../HOCs";
 import { connect } from "react-redux";
-import { Spinner } from ".";
 import { getUser } from "../../redux/actionCreators";
-import { CreatedAt } from "../components";
+import { CreatedAt, Spinner } from "../components";
 
 class ProfileCard extends Component {
   componentDidMount() {
-    this.props.getUser(this.props.profilename);
+    this.props.getUser(this.props.profileName);
   }
 
   render() {
