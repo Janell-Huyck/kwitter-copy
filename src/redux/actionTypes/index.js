@@ -20,7 +20,9 @@ export const LOGOUT = createActionTypes("LOGOUT");
 //messages
 export const DELETEMESSAGE = createActionTypes("DELETEMESSAGE");
 export const GETMESSAGES = createActionTypes("GETMESSAGES");
-// export const GETONEMESSAGE = createActionTypes("GETONEMESSAGE");
+export const GETSPECIFICUSERMESSAGES = createActionTypes(
+  "GETSPECIFICUSERMESSAGES"
+);
 export const POSTMESSAGE = createActionTypes("POSTMESSAGE");
 //likes
 export const LIKEMESSAGE = createActionTypes("LIKEMESSAGE");

@@ -1,10 +1,10 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
-import { LIKEMESSAGE } from "../actionTypes";
-import { UNLIKEMESSAGE } from "../actionTypes";
+import { LIKEMESSAGE, UNLIKEMESSAGE } from "../actionTypes";
+import { getMessages } from "./messages";
 
 const url = domain + "/likes";
 
-export const likeMessage = (messageId, token) => dispatch => {
+export const _likeMessage = (messageId, token) => dispatch => {
   dispatch({
     type: LIKEMESSAGE.START
   });
@@ -26,7 +26,7 @@ export const likeMessage = (messageId, token) => dispatch => {
     });
 };
 
-export const unlikeMessage = (likeId, token) => dispatch => {
+export const _unlikeMessage = (likeId, token) => dispatch => {
   dispatch({
     type: UNLIKEMESSAGE.START
   });
@@ -47,4 +47,16 @@ export const unlikeMessage = (likeId, token) => dispatch => {
         dispatch({ type: UNLIKEMESSAGE.FAIL, payload: err })
       );
     });
+};
+
+export const likeMessage = (messageId, token) => dispatch => {
+  return dispatch(_likeMessage(messageId, token)).then(() =>
+    dispatch(getMessages())
+  );
+};
+
+export const unlikeMessage = (messageId, token) => dispatch => {
+  return dispatch(_unlikeMessage(messageId, token)).then(() =>
+    dispatch(getMessages())
+  );
 };

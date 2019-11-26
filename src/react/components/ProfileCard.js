@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./ProfileCard.css";
 import { withAsyncAction } from "../HOCs";
 import { connect } from "react-redux";
-// import { Spinner } from ".";
 import { getUser } from "../../redux/actionCreators";
 import { CreatedAt, Spinner } from "../components";
 
