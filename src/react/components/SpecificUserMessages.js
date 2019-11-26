@@ -36,11 +36,16 @@ class SpecificUserMessages extends React.Component {
 const mapStateToProps = state => {
   if (state.users.getUser.result) {
     return {
-      username: state.users.getUser.result.user.username
+      // username: state.users.getUser.result.user.username
     };
   } else return {};
 };
 
-export default connect(mapStateToProps)(
-  withAsyncAction("messages", "getSpecificUserMessages")(SpecificUserMessages)
-);
+const mapDefaultToProps = {
+  // getMessageList
+};
+
+export default connect(
+  mapStateToProps,
+  mapDefaultToProps
+)(withAsyncAction("messages", "getSpecificUserMessages")(SpecificUserMessages));

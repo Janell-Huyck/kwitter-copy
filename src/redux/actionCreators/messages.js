@@ -35,7 +35,7 @@ export const getMessages = () => dispatch => {
   dispatch({
     type: GETMESSAGES.START
   });
-  return fetch(url + "?limit=100", {
+  return fetch(url + "?limit=30", {
     method: "GET",
     headers: jsonHeaders
   })
@@ -55,7 +55,7 @@ export const getSpecificUserMessages = userId => dispatch => {
   dispatch({
     type: GETSPECIFICUSERMESSAGES.START
   });
-  return fetch(url + "/?limit=100&username=" + userId, {
+  return fetch(url + "?limit=100&offset=0&username=" + userId, {
     method: "GET",
     headers: jsonHeaders
   })

@@ -7,7 +7,7 @@ import { CreatedAt, Spinner } from "../components";
 
 class ProfileCard extends Component {
   componentDidMount() {
-    this.props.getUser(this.props.profilename);
+    this.props.getUser(this.props.profileName);
   }
 
   render() {
