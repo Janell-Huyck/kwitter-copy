@@ -8,7 +8,7 @@
   align-items: center;
   height: 55%;
   /* margin-bottom: 200px; */
-  margin-top:30px;
+  margin-top: 30px;
 }
 
 .menu-links {
@@ -28,11 +28,12 @@
 .menu > h1 {
   font-size: 110px;
   margin-top: 20px;
-  font-family: 'Carter One', cursive;
+  font-family: "Carter One", cursive;
 }
 
 .menu-links .selected {
   color: gray;
+  opacity: 0.5;
   text-decoration: none;
   cursor: default;
 }

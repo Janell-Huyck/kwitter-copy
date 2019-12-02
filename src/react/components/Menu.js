@@ -25,11 +25,7 @@ class Menu extends React.Component {
             <NavLink activeClassName="selected" to="/messagefeed">
               Kweed
             </NavLink>
-            <NavLink
-              activeClassName="selected"
-              to="/"
-              onClick={this.handleLogout}
-            >
+            <NavLink to="/" onClick={this.handleLogout}>
               Logout
             </NavLink>
           </div>
