@@ -97,8 +97,8 @@ const _postMessage = messageData => dispatch => {
     });
 };
 
-export const postMessage = messageBody => (dispatch, getState) => {
+export const postMessage = messageBody => dispatch => {
   return dispatch(_postMessage(messageBody)).then(() => {
     return dispatch(getMessages());
-  });
+  })
 }
