@@ -47,7 +47,12 @@ class ProfileCard extends Component {
             <p>"No bio provided by this user"</p>
           )}
         </div>
-        <DeleteUserButton />
+        <div className="counters">
+          <span>0 kweets</span>
+          <span>0 following</span>
+          <span>0 followers</span>
+          <span>0 likes</span>
+        </div>
       </div>
     );
   }

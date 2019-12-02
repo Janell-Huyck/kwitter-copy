@@ -96,7 +96,7 @@ export const getSpecificUserMessages = userId => dispatch => {
     });
 };
 
-export const postMessage = messageData => dispatch => {
+const _postMessage = messageData => dispatch => {
   dispatch({
     type: POSTMESSAGE.START
   });
@@ -119,3 +119,9 @@ export const postMessage = messageData => dispatch => {
       return Promise.reject(dispatch({ type: POSTMESSAGE.FAIL, payload: err }));
     });
 };
+
+export const postMessage = messageBody => dispatch => {
+  return dispatch(_postMessage(messageBody)).then(() => {
+    return dispatch(getMessages());
+  })
+}
