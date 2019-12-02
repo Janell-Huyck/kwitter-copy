@@ -14,7 +14,7 @@ class MessageFeed extends React.Component {
             <NewMessageBox />
           </div>
           <div className="rightBox">
-            <MessageList />
+            <MessageList requestTag="?limit=30" />
           </div>
         </div>
       </>

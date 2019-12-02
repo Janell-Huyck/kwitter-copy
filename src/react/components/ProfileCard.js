@@ -3,7 +3,7 @@ import "./ProfileCard.css";
 import { withAsyncAction } from "../HOCs";
 import { connect } from "react-redux";
 import { getUser } from "../../redux/actionCreators";
-import { CreatedAt, Spinner } from "../components";
+import { CreatedAt, Spinner, DeleteUserButton } from "../components";
 
 class ProfileCard extends Component {
   componentDidMount() {
@@ -47,12 +47,7 @@ class ProfileCard extends Component {
             <p>"No bio provided by this user"</p>
           )}
         </div>
-        <div className="counters">
-          <span>0 kweets</span>
-          <span>0 following</span>
-          <span>0 followers</span>
-          <span>0 likes</span>
-        </div>
+        <DeleteUserButton />
       </div>
     );
   }

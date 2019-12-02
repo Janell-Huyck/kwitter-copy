@@ -6,14 +6,13 @@ import { Spinner } from ".";
 
 class MessageList extends React.Component {
   componentDidMount = () => {
-    this.props.getMessages();
+    this.props.getMessages(this.props.requestTag);
   };
 
   render() {
     return !this.props.result ? (
       <Spinner />
     ) : (
-      // ) : !this.props.messageFilter ? (
       <div className="messageList">
         {this.props.result.messages.map(message => {
           return (
@@ -29,25 +28,6 @@ class MessageList extends React.Component {
           );
         })}
       </div>
-      // ) : (
-      //   <div>
-      //     {this.props.result.messages
-      //       .filter(message => message.username === this.props.messageFilter)
-
-      //       .map(message => {
-      //         return (
-      //           <div className="messageCard" key={message.id}>
-      //             <MessageCard
-      //               id={message.id}
-      //               username={message.username}
-      //               text={message.text}
-      //               createdAt={message.createdAt}
-      //               likes={message.likes}
-      //             />
-      //           </div>
-      //         );
-      //       })}
-      //   </div>
     );
   }
 }

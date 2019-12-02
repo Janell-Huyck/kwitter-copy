@@ -3,7 +3,6 @@ import MessageCard from "./MessageCard";
 import "./MessageList.css";
 import { withAsyncAction } from "../HOCs";
 import { Spinner } from ".";
-import { connect } from "react-redux";
 
 class SpecificUserMessages extends React.Component {
   componentDidMount = () => {
@@ -33,19 +32,7 @@ class SpecificUserMessages extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  if (state.users.getUser.result) {
-    return {
-      // username: state.users.getUser.result.user.username
-    };
-  } else return {};
-};
-
-const mapDefaultToProps = {
-  // getMessageList
-};
-
-export default connect(
-  mapStateToProps,
-  mapDefaultToProps
-)(withAsyncAction("messages", "getSpecificUserMessages")(SpecificUserMessages));
+export default withAsyncAction(
+  "messages",
+  "getSpecificUserMessages"
+)(SpecificUserMessages);

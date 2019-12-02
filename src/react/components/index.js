@@ -7,7 +7,8 @@ export { default as NewMessageBox } from "./NewMessageBox";
 export { default as MessageList } from "./MessageList";
 export { default as CreatedAt } from "./CreatedAt";
 export { default as SpecificUserMessages } from "./SpecificUserMessages";
+export { default as DeleteUserButton } from "./DeleteUserButton";
 
 // components from other packages
-export { Switch, Route, Link } from "react-router-dom";
+export { Switch, Route, Link, NavLink } from "react-router-dom";
 export { default as Spinner } from "react-spinkit";

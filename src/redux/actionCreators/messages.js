@@ -3,7 +3,8 @@ import {
   DELETEMESSAGE,
   GETMESSAGES,
   POSTMESSAGE,
-  GETSPECIFICUSERMESSAGES
+  GETSPECIFICUSERMESSAGES,
+  GETONEMESSAGE
 } from "../actionTypes";
 
 const url = domain + "/messages";
@@ -31,11 +32,11 @@ export const deleteMessage = messageId => dispatch => {
     });
 };
 //kwitter-api.herokuapp.com/messages?limit=100&offset=0&username=test
-export const getMessages = () => dispatch => {
+export const getMessages = requestTag => dispatch => {
   dispatch({
     type: GETMESSAGES.START
   });
-  return fetch(url + "?limit=30", {
+  return fetch(url + requestTag, {
     method: "GET",
     headers: jsonHeaders
   })
@@ -51,11 +52,33 @@ export const getMessages = () => dispatch => {
     });
 };
 
+export const getOneMessage = messageId => dispatch => {
+  dispatch({
+    type: GETONEMESSAGE.START
+  });
+  return fetch(url + "/" + messageId, {
+    method: "GET",
+    headers: jsonHeaders
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: GETONEMESSAGE.SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err => {
+      return Promise.reject(
+        dispatch({ type: GETONEMESSAGE.FAIL, payload: err })
+      );
+    });
+};
+
 export const getSpecificUserMessages = userId => dispatch => {
   dispatch({
     type: GETSPECIFICUSERMESSAGES.START
   });
-  return fetch(url + "?limit=100&offset=0&username=" + userId, {
+  return fetch(url + "?limit=30&username=" + userId, {
     method: "GET",
     headers: jsonHeaders
   })

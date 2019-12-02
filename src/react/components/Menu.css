@@ -27,3 +27,9 @@
   font-size: 80px;
   margin-top: 8px;
 }
+
+.menu-links .selected {
+  color: gray;
+  text-decoration: none;
+  cursor: default;
+}

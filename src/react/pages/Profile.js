@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Menu,
-  ProfileCard,
-  NewMessageBox,
-  SpecificUserMessages
-} from "../components";
+import { Menu, ProfileCard, NewMessageBox, MessageList } from "../components";
 import { userIsAuthenticated } from "../HOCs";
 import "./Profile.css";
 import { connect } from "react-redux";
@@ -30,8 +25,8 @@ class Profile extends React.Component {
             <ProfileCard profileName={this.props.match.params.username} />
           </div>
           <div className="profileMessageList">
-            <SpecificUserMessages
-              profileName={this.props.match.params.username}
+            <MessageList
+              requestTag={`?limit=30&offset=0&username=${this.props.match.params.username}`}
             />
           </div>
         </div>
