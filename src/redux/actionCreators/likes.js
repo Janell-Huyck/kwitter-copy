@@ -1,10 +1,6 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
 import { LIKEMESSAGE, UNLIKEMESSAGE } from "../actionTypes";
-import {
-  getMessages,
-  getSpecificUserMessages,
-  getOneMessage
-} from "./messages";
+import { getMessages } from "./messages";
 
 const url = domain + "/likes";
 
@@ -53,14 +49,14 @@ export const _unlikeMessage = (likeId, token) => dispatch => {
     });
 };
 
-export const likeMessage = (messageId, token) => dispatch => {
+export const likeMessage = (messageId, token, requestTag) => dispatch => {
   return dispatch(_likeMessage(messageId, token)).then(() =>
-    dispatch(getOneMessage(messageId))
+    dispatch(getMessages(requestTag))
   );
 };
 
-export const unlikeMessage = (messageId, token) => dispatch => {
+export const unlikeMessage = (messageId, token, requestTag) => dispatch => {
   return dispatch(_unlikeMessage(messageId, token)).then(() =>
-    dispatch(getOneMessage(messageId))
+    dispatch(getMessages(requestTag))
   );
 };

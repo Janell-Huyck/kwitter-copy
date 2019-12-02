@@ -1,11 +1,5 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
-import {
-  DELETEMESSAGE,
-  GETMESSAGES,
-  POSTMESSAGE,
-  GETSPECIFICUSERMESSAGES,
-  GETONEMESSAGE
-} from "../actionTypes";
+import { DELETEMESSAGE, GETMESSAGES, POSTMESSAGE } from "../actionTypes";
 
 const url = domain + "/messages";
 
@@ -52,50 +46,6 @@ export const getMessages = requestTag => dispatch => {
     });
 };
 
-export const getOneMessage = messageId => dispatch => {
-  dispatch({
-    type: GETONEMESSAGE.START
-  });
-  return fetch(url + "/" + messageId, {
-    method: "GET",
-    headers: jsonHeaders
-  })
-    .then(handleJsonResponse)
-    .then(result => {
-      return dispatch({
-        type: GETONEMESSAGE.SUCCESS,
-        payload: result
-      });
-    })
-    .catch(err => {
-      return Promise.reject(
-        dispatch({ type: GETONEMESSAGE.FAIL, payload: err })
-      );
-    });
-};
-
-export const getSpecificUserMessages = userId => dispatch => {
-  dispatch({
-    type: GETSPECIFICUSERMESSAGES.START
-  });
-  return fetch(url + "?limit=30&username=" + userId, {
-    method: "GET",
-    headers: jsonHeaders
-  })
-    .then(handleJsonResponse)
-    .then(result => {
-      return dispatch({
-        type: GETSPECIFICUSERMESSAGES.SUCCESS,
-        payload: result
-      });
-    })
-    .catch(err => {
-      return Promise.reject(
-        dispatch({ type: GETSPECIFICUSERMESSAGES.FAIL, payload: err })
-      );
-    });
-};
-
 const _postMessage = messageData => dispatch => {
   dispatch({
     type: POSTMESSAGE.START
@@ -120,8 +70,8 @@ const _postMessage = messageData => dispatch => {
     });
 };
 
-export const postMessage = messageBody => dispatch => {
+export const postMessage = (messageBody, requestTag) => dispatch => {
   return dispatch(_postMessage(messageBody)).then(() => {
-    return dispatch(getMessages());
-  })
-}
+    return dispatch(getMessages(requestTag));
+  });
+};

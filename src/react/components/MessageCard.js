@@ -13,7 +13,11 @@ class MessageCard extends React.Component {
           <p>{this.props.text}</p>
           <p>{new Date(this.props.createdAt).toDateString()}</p>
         </div>
-        <MessageCardFooter id={this.props.id} likes={this.props.likes} />
+        <MessageCardFooter
+          id={this.props.id}
+          likes={this.props.likes}
+          requestTag={this.props.requestTag}
+        />
       </React.Fragment>
     );
   }

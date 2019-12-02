@@ -7,7 +7,11 @@ class UnlikeMessage extends React.Component {
     event.preventDefault();
     this.props.likes.forEach(like => {
       if (like.username === this.props.username) {
-        this.props.unlikeMessage(like.id, this.props.token);
+        this.props.unlikeMessage(
+          like.id,
+          this.props.token,
+          this.props.requestTag
+        );
       }
     });
   };

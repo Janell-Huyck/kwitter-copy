@@ -12,7 +12,7 @@ const likeMessage = (state = initialState, action) => {
     case LIKEMESSAGE.SUCCESS:
       return { ...initialState };
     default:
-      return state;
+      return { ...state };
   }
 };
 

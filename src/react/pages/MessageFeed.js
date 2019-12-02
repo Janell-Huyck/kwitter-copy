@@ -11,7 +11,7 @@ class MessageFeed extends React.Component {
           <div className="leftBox">
             <Menu isAuthenticated={this.props.isAuthenticated} />
             <h3>Create New Kweet Below...</h3>
-            <NewMessageBox />
+            <NewMessageBox requestTag="?limit=30" />
           </div>
           <div className="rightBox">
             <MessageList requestTag="?limit=30" />

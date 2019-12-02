@@ -16,7 +16,9 @@ class Profile extends React.Component {
           {this.props.username === this.props.match.params.username && (
             <div>
               <h3>Create New Kweet Below...</h3>
-              <NewMessageBox />
+              <NewMessageBox
+                requestTag={`?limit=30&offset=0&username=${this.props.match.params.username}`}
+              />
             </div>
           )}
         </div>

@@ -6,7 +6,6 @@ export { default as ProfileCard } from "./ProfileCard";
 export { default as NewMessageBox } from "./NewMessageBox";
 export { default as MessageList } from "./MessageList";
 export { default as CreatedAt } from "./CreatedAt";
-export { default as SpecificUserMessages } from "./SpecificUserMessages";
 export { default as DeleteUserButton } from "./DeleteUserButton";
 
 // components from other packages

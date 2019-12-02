@@ -23,9 +23,15 @@ class MessageCardFooter extends React.Component {
     return (
       <div className="messageFooter">
         {this.checkIfMessageIsLiked() === false ? (
-          <LikeMessage messageId={this.props.id} />
+          <LikeMessage
+            messageId={this.props.id}
+            requestTag={this.props.requestTag}
+          />
         ) : (
-          <UnlikeMessage likes={this.props.likes} />
+          <UnlikeMessage
+            likes={this.props.likes}
+            requestTag={this.props.requestTag}
+          />
         )}
         <div>{this.props.likes.length} Likes</div>
         <div>Delete</div>
