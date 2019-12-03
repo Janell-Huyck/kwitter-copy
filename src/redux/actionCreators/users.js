@@ -121,10 +121,4 @@ export const putUserPicture = formData => (dispatch, getState) => {
         dispatch({ type: PUTUSERPICTURE.FAIL, payload: err })
       );
     })
-    .then(() => {
-      return dispatch({
-        type: LOGOUT.SUCCESS,
-        payload: { statusCode: 200 }
-      });
-    });
 };
