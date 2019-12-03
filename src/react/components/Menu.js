@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from ".";
+import { NavLink } from ".";
 import "./Menu.css";
-import { withAsyncAction } from "../HOCs";
-import { connect } from "react-redux";
+import { withAsyncAction, connect } from "../HOCs";
 
 class Menu extends React.Component {
   handleLogout = event => {
@@ -16,12 +15,19 @@ class Menu extends React.Component {
         <h1>Kwitter</h1>
         {this.props.isAuthenticated && (
           <div className="menu-links">
-            <Link to={`/profile/${this.props.username}`}> Profile</Link>
-
-            <Link to="/messagefeed">Kweed</Link>
-            <Link to="/" onClick={this.handleLogout}>
+            <NavLink
+              activeClassName="selected"
+              to={`/profile/${this.props.username}`}
+            >
+              {" "}
+              Profile
+            </NavLink>
+            <NavLink activeClassName="selected" to="/messagefeed">
+              Kweed
+            </NavLink>
+            <NavLink to="/" onClick={this.handleLogout}>
               Logout
-            </Link>
+            </NavLink>
           </div>
         )}
       </div>

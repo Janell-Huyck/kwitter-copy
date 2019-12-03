@@ -2,7 +2,6 @@ import React from "react";
 import { withAsyncAction } from "../HOCs";
 import { Spinner } from ".";
 import "./NewMessage.css";
-import { connect } from "react-redux";
 
 class NewMessageBox extends React.Component {
   state = { value: "" };
@@ -14,7 +13,7 @@ class NewMessageBox extends React.Component {
   postMessage = event => {
     event.preventDefault();
     this.props
-      .postMessage({ text: this.state.value })
+      .postMessage({ text: this.state.value }, this.props.requestTag)
       .then(this.setState({ value: "" }));
   };
 
@@ -53,17 +52,4 @@ class NewMessageBox extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {};
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    postMessage
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withAsyncAction("messages", "postMessage")(NewMessageBox));
+export default withAsyncAction("messages", "postMessage")(NewMessageBox);

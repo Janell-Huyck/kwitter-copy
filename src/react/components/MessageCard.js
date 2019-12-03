@@ -1,21 +1,23 @@
 import React from "react";
 import MessageCardFooter from "./MessageCardFooter";
+import { Link } from ".";
 
 class MessageCard extends React.Component {
-  componentDidMount = () => {
-    // return messageIsLiked;
-  };
-
   render() {
-    //write some code here to make a variable for whether or not a message has already been liked by the user.
     return (
       <React.Fragment>
         <div>
-          <h4>{this.props.username}</h4>
+          <Link to={`/profile/${this.props.username}`}>
+            <h4>{this.props.username}</h4>
+          </Link>
           <p>{this.props.text}</p>
           <p>{new Date(this.props.createdAt).toDateString()}</p>
         </div>
-        <MessageCardFooter id={this.props.id} likes={this.props.likes} />
+        <MessageCardFooter
+          id={this.props.id}
+          likes={this.props.likes}
+          requestTag={this.props.requestTag}
+        />
       </React.Fragment>
     );
   }
