@@ -1,7 +1,6 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
-import { GETUSER, POSTUSER, DELETEUSER, LOGOUT } from "../actionTypes";
+import { GETUSER, CREATEUSER, DELETEUSER, LOGOUT } from "../actionTypes";
 import { login } from "./auth";
-import { push } from "connected-react-router";
 
 const url = domain + "/users";
 
@@ -26,8 +25,8 @@ export const getUser = userName => dispatch => {
     });
 };
 
-const _postUser = registerData => dispatch => {
-  dispatch({ type: POSTUSER.START });
+const _createUser = registerData => dispatch => {
+  dispatch({ type: CREATEUSER.START });
 
   return fetch(url, {
     method: "POST",
@@ -37,17 +36,17 @@ const _postUser = registerData => dispatch => {
     .then(handleJsonResponse)
     .then(result => {
       return dispatch({
-        type: POSTUSER.SUCCESS,
+        type: CREATEUSER.SUCCESS,
         payload: result
       });
     })
     .catch(err => {
-      return Promise.reject(dispatch({ type: POSTUSER.FAIL, payload: err }));
+      return Promise.reject(dispatch({ type: CREATEUSER.FAIL, payload: err }));
     });
 };
 
-export const postUser = registerData => (dispatch, getState) => {
-  return dispatch(_postUser(registerData))
+export const createUser = registerData => (dispatch, getState) => {
+  return dispatch(_createUser(registerData))
     .then(() =>
       dispatch(
         login({
@@ -57,8 +56,10 @@ export const postUser = registerData => (dispatch, getState) => {
       )
     )
     .then(() => {
-      // const username = getState().auth.login.result.username;
-      return dispatch(push("/"));
+      return dispatch({
+        type: LOGOUT.SUCCESS,
+        payload: { statusCode: 200 }
+      });
     });
 };
 

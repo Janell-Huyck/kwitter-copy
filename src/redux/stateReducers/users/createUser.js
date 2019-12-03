@@ -1,4 +1,4 @@
-import { POSTUSER } from "../../actionTypes";
+import { CREATEUSER } from "../../actionTypes";
 import { withAsyncReducer } from "../../HORs";
 
 const initialState = {
@@ -7,11 +7,11 @@ const initialState = {
   error: null
 };
 
-const postUser = (state = initialState, action) => {
+const createUser = (state = initialState, action) => {
   switch (action.type) {
     default:
       return state;
   }
 };
 
-export default withAsyncReducer(POSTUSER, postUser);
+export default withAsyncReducer(CREATEUSER, createUser);

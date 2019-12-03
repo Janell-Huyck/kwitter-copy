@@ -26,5 +26,5 @@ export const LIKEMESSAGE = createActionTypes("LIKEMESSAGE");
 export const UNLIKEMESSAGE = createActionTypes("UNLIKEMESSAGE");
 //users
 export const GETUSER = createActionTypes("GETUSER");
-export const POSTUSER = createActionTypes("POSTUSER");
+export const CREATEUSER = createActionTypes("CREATEUSER");
 export const DELETEUSER = createActionTypes("DELETEUSER");

@@ -1,5 +1,5 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
-import { LIKEMESSAGE, UNLIKEMESSAGE } from "../actionTypes";
+import { LIKEMESSAGE, UNLIKEMESSAGE, LOGOUT } from "../actionTypes";
 import { getMessages } from "./messages";
 
 const url = domain + "/likes";
@@ -22,6 +22,12 @@ export const _likeMessage = (messageId, token) => dispatch => {
       });
     })
     .catch(err => {
+      if (err.statusCode === 401) {
+        return dispatch({
+          type: LOGOUT.SUCCESS,
+          payload: { statusCode: 200 }
+        });
+      }
       return Promise.reject(dispatch({ type: LIKEMESSAGE.FAIL, payload: err }));
     });
 };
@@ -43,6 +49,12 @@ export const _unlikeMessage = (likeId, token) => dispatch => {
       });
     })
     .catch(err => {
+      if (err.statusCode === 401) {
+        return dispatch({
+          type: LOGOUT.SUCCESS,
+          payload: { statusCode: 200 }
+        });
+      }
       return Promise.reject(
         dispatch({ type: UNLIKEMESSAGE.FAIL, payload: err })
       );
