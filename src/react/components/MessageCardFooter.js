@@ -1,6 +1,6 @@
 import React from "react";
 // import withAsyncAction from "../HOCs"
- import { Spinner, DeleteMessage} from "../components";
+ import { DeleteMessage} from "../components";
 // import LikeOrUnlike from "./LikeOrUnlike";
 // import { likeMessage, unlikeMessage } from "../../redux";
 import LikeMessage from "./LikeMessage";
