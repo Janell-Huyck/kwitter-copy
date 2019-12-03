@@ -1,5 +1,11 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
-import { GETUSER, CREATEUSER, DELETEUSER, LOGOUT } from "../actionTypes";
+import {
+  GETUSER,
+  CREATEUSER,
+  DELETEUSER,
+  LOGOUT,
+  PUTUSERPICTURE
+} from "../actionTypes";
 import { login } from "./auth";
 
 const url = domain + "/users";
@@ -81,6 +87,39 @@ export const deleteUser = () => (dispatch, getState) => {
     })
     .catch(err => {
       return Promise.reject(dispatch({ type: DELETEUSER.FAIL, payload: err }));
+    })
+    .then(() => {
+      return dispatch({
+        type: LOGOUT.SUCCESS,
+        payload: { statusCode: 200 }
+      });
+    });
+};
+////////////// below - adapt to put user picture
+export const putUserPicture = formData => (dispatch, getState) => {
+  dispatch({ type: PUTUSERPICTURE.START });
+
+  const { username, token } = getState().auth.login.result;
+
+  return fetch(url + "/" + username + "/picture", {
+    method: "PUT",
+    headers: {
+      Authorization: "Bearer " + token,
+      Accept: "application/json"
+    },
+    body: formData
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: PUTUSERPICTURE.SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err => {
+      return Promise.reject(
+        dispatch({ type: PUTUSERPICTURE.FAIL, payload: err })
+      );
     })
     .then(() => {
       return dispatch({
