@@ -8,18 +8,44 @@ class CreateUser extends React.Component {
   state = {
     username: "",
     password: "",
-    displayName: ""
+    displayName: "",
+    error: false
   };
 
   handleCreateUser = e => {
     e.preventDefault();
-    this.props.postUser(this.state);
+    if (this.validate() === true) {
+      this.props.createUser({
+        username: this.state.username,
+        password: this.state.password,
+        displayName: this.state.displayName
+      });
+    }
+  };
+
+  validate = () => {
+    const { username, password, displayName } = this.state;
+    if (username.trim().length < 3 || username.trim().length > 20) {
+      return false;
+    } else if (password.trim().length < 3 || password.trim().length > 20) {
+      return false;
+    } else if (
+      displayName.trim().length < 3 ||
+      displayName.trim().length > 20
+    ) {
+      return false;
+    } else return true;
   };
 
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
+    if (e.target.value.trim().length < 3 || e.target.value.trim().length > 20) {
+      e.target.style.color = "red";
+    } else {
+      e.target.style.color = "gray";
+    }
   };
 
   render() {
@@ -35,7 +61,7 @@ class CreateUser extends React.Component {
               label="Username"
               type="text"
               name="username"
-              placeholder="Enter your Name"
+              placeholder="3-20 characters"
               autoFocus
               required
               onChange={this.handleChange}
@@ -46,7 +72,7 @@ class CreateUser extends React.Component {
             label="Password"
             type="password"
             name="password"
-            placeholder="Enter your Password"
+            placeholder="3-20 characters"
             onChange={this.handleChange}
             required
           />
@@ -55,8 +81,7 @@ class CreateUser extends React.Component {
             label="Display Name"
             type="text"
             name="displayName"
-            placeholder="Enter your full name"
-            autoFocus
+            placeholder="3-20 characters"
             required
             onChange={this.handleChange}
           />
@@ -64,7 +89,6 @@ class CreateUser extends React.Component {
             style={{ color: "#5A4576", marginTop: "1px" }}
             size="huge"
             type="submit"
-            onClick={this.handleCreateUser}
             disabled={loading}
           >
             Register
@@ -81,4 +105,4 @@ class CreateUser extends React.Component {
   }
 }
 
-export default withAsyncAction("users", "postUser")(CreateUser);
+export default withAsyncAction("users", "createUser")(CreateUser);

@@ -22,6 +22,7 @@ class LoginForm extends React.Component {
       <div id="formStyle">
         <React.Fragment>
           <form id="login-form" onSubmit={this.handleLogin}>
+          
             <Input
               size="huge"
               label="Username"
@@ -50,15 +51,17 @@ class LoginForm extends React.Component {
             >
               Login
             </Button>
+            
             {error && (
               <p style={{ marginTop: "10px", color: "red", fontSize: "20px" }}>
                 {error.message}
               </p>
             )}
+           
           </form>
           {loading && <Spinner name="circle" color="blue" />}
         </React.Fragment>
-      </div>
+        </div>
     );
   }
 }

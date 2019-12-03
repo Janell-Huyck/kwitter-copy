@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import "./ProfileCard.css";
 import { withAsyncAction } from "../HOCs";
 import { connect } from "react-redux";
-import { getUser } from "../../redux/actionCreators";
-import { CreatedAt, Spinner } from "../components";
+import { CreatedAt, Spinner, DeleteUserButton } from "../components";
 
 class ProfileCard extends Component {
   componentDidMount() {
@@ -47,12 +46,18 @@ class ProfileCard extends Component {
             <p>"No bio provided by this user"</p>
           )}
         </div>
+
+        {this.props.username === this.props.loggedIn && <DeleteUserButton />}
+        {/* 
+        
+        ********Jordan - I don't see us doing these features so I'm commenting them out*********
+        
         <div className="counters">
           <span>0 kweets</span>
           <span>0 following</span>
           <span>0 followers</span>
           <span>0 likes</span>
-        </div>
+        </div> */}
       </div>
     );
   }
@@ -61,6 +66,7 @@ class ProfileCard extends Component {
 const mapStateToProps = state => {
   if (state.users.getUser.result) {
     return {
+      loggedIn: state.auth.login.result.username,
       username: state.users.getUser.result.user.username,
       pictureLocation: state.users.getUser.result.user.pictureLocation,
       displayName: state.users.getUser.result.user.displayName,
@@ -72,11 +78,6 @@ const mapStateToProps = state => {
   } else return {};
 };
 
-const mapDispatchToProps = {
-  getUser
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withAsyncAction("users", "getUser")(ProfileCard));
+export default connect(mapStateToProps)(
+  withAsyncAction("users", "getUser")(ProfileCard)
+);

@@ -12,7 +12,7 @@ const unlikeMessage = (state = initialState, action) => {
     case UNLIKEMESSAGE.SUCCESS:
       return { ...initialState };
     default:
-      return state;
+      return { ...state };
   }
 };
 

@@ -7,7 +7,8 @@ class LikeMessage extends React.Component {
     event.preventDefault();
     this.props.likeMessage(
       { messageId: this.props.messageId },
-      this.props.token
+      this.props.token,
+      this.props.requestTag
     );
   };
 

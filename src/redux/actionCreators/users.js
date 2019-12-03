@@ -1,5 +1,5 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
-import { GETUSER, POSTUSER } from "../actionTypes";
+import { GETUSER, CREATEUSER, DELETEUSER, LOGOUT } from "../actionTypes";
 import { login } from "./auth";
 
 const url = domain + "/users";
@@ -25,8 +25,8 @@ export const getUser = userName => dispatch => {
     });
 };
 
-const _postUser = registerData => dispatch => {
-  dispatch({ type: POSTUSER.START });
+const _createUser = registerData => dispatch => {
+  dispatch({ type: CREATEUSER.START });
 
   return fetch(url, {
     method: "POST",
@@ -36,22 +36,56 @@ const _postUser = registerData => dispatch => {
     .then(handleJsonResponse)
     .then(result => {
       return dispatch({
-        type: POSTUSER.SUCCESS,
+        type: CREATEUSER.SUCCESS,
         payload: result
       });
     })
     .catch(err => {
-      return Promise.reject(dispatch({ type: POSTUSER.FAIL, payload: err }));
+      return Promise.reject(dispatch({ type: CREATEUSER.FAIL, payload: err }));
     });
 };
 
-export const postUser = registerData => dispatch => {
-  return dispatch(_postUser(registerData)).then(() =>
-    dispatch(
-      login({
-        username: registerData.username,
-        password: registerData.password
-      })
+export const createUser = registerData => (dispatch, getState) => {
+  return dispatch(_createUser(registerData))
+    .then(() =>
+      dispatch(
+        login({
+          username: registerData.username,
+          password: registerData.password
+        })
+      )
     )
-  );
+    .then(() => {
+      return dispatch({
+        type: LOGOUT.SUCCESS,
+        payload: { statusCode: 200 }
+      });
+    });
+};
+
+export const deleteUser = () => (dispatch, getState) => {
+  dispatch({ type: DELETEUSER.START });
+
+  const { username, token } = getState().auth.login.result;
+
+  return fetch(url + "/" + username, {
+    method: "DELETE",
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders }
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: DELETEUSER.SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err => {
+      return Promise.reject(dispatch({ type: DELETEUSER.FAIL, payload: err }));
+    })
+    .then(() => {
+      return dispatch({
+        type: LOGOUT.SUCCESS,
+        payload: { statusCode: 200 }
+      });
+    });
 };
