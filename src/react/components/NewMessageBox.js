@@ -26,8 +26,24 @@ class NewMessageBox extends React.Component {
     return (
       <div className="newMessageBox">
         <i className="fas fa-user-edit fa-4x newMessageIcon" color="white" />
+        {/* <form>
+           <label for="name">Name:</label>
+           <input type="text" name="name" id="name">
+           <input type="submit" value="Submit">
+        </form> */}
+        {/* <form method="get" id="testformid">
+          <input type="submit" />
+        </form>
+        <textarea
+          form="testformid"
+          name="taname"
+          id="taid"
+          cols="35"
+          wrap="soft"
+        ></textarea> */}
         <form className="newMessageText">
           <textarea
+            type="textarea"
             placeholder="What's Happening . . ."
             rows="7"
             columns="500"
@@ -35,16 +51,19 @@ class NewMessageBox extends React.Component {
             value={this.state.value}
             className="newMessageTextArea"
           ></textarea>
+          <br />
+          <div className="newMessageButtonDiv">
+            <input
+              type="submit"
+              onClick={this.postMessage}
+              className="newMessageButton"
+              value="Send Kweet"
+            ></input>
+            <button className="newMessageButton" onClick={this.handleCancel}>
+              Cancel
+            </button>
+          </div>
         </form>
-        <br />
-        <div className="newMessageButtonDiv">
-          <button onClick={this.postMessage} className="newMessageButton">
-            Send Kweet
-          </button>
-          <button className="newMessageButton" onClick={this.handleCancel}>
-            Cancel
-          </button>
-        </div>
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
       </div>
