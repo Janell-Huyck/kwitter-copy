@@ -2,12 +2,27 @@ import React, { Component } from "react";
 import "./ProfileCard.css";
 import { withAsyncAction } from "../HOCs";
 import { connect } from "react-redux";
-import { Link, CreatedAt, Spinner, DeleteUserButton } from "../components";
+
+
+
+import {
+  Link,
+  CreatedAt,
+  Spinner,
+  DeleteUserButton,
+  UploadUserPicture
+} from "../components";
 
 
 class ProfileCard extends Component {
   componentDidMount() {
     this.props.getUser(this.props.profileName);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.profileName !== prevProps.profileName) {
+      this.props.getUser(this.props.profileName);
+    }
   }
 
   render() {
@@ -19,7 +34,7 @@ class ProfileCard extends Component {
           {this.props.pictureLocation ? (
             <img
               className="user-picture"
-              src={this.props.pictureLocation}
+              src={`https://kwitter-api.herokuapp.com${this.props.pictureLocation}`}
               alt="user profile"
             />
           ) : (
@@ -48,18 +63,13 @@ class ProfileCard extends Component {
           )}
         </div>
 
+
         { this.props.username === this.props.loggedIn && /*<DeleteUserButton /> */
         <Link to = {`/edit+profile/${this.props.username}`}>Edit profile</Link>}
-        {/* 
-        
-        ********Jordan - I don't see us doing these features so I'm commenting them out*********
-        
-        <div className="counters">
-          <span>0 kweets</span>
-          <span>0 following</span>
-          <span>0 followers</span>
-          <span>0 likes</span>
-        </div> */}
+
+        <DeleteUserButton username={this.props.username} />
+        <UploadUserPicture username={this.props.username} />
+
       </div>
     );
   }

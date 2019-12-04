@@ -9,6 +9,12 @@ class MessageList extends React.Component {
     this.props.getMessages(this.props.requestTag);
   };
 
+  componentDidUpdate(prevProps) {
+    if (this.props.requestTag !== prevProps.requestTag) {
+      this.props.getMessages(this.props.requestTag);
+    }
+  }
+
   render() {
     return !this.props.result ? (
       <Spinner />

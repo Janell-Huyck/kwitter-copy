@@ -1,6 +1,6 @@
 import React from "react";
 // import withAsyncAction from "../HOCs"
-// import { Spinner } from "../components";
+ import { DeleteMessage} from "../components";
 // import LikeOrUnlike from "./LikeOrUnlike";
 // import { likeMessage, unlikeMessage } from "../../redux";
 import LikeMessage from "./LikeMessage";
@@ -34,7 +34,7 @@ class MessageCardFooter extends React.Component {
           />
         )}
         <div>{this.props.likes.length} Likes</div>
-        <div>Delete</div>
+         {this.props.username === this.props.loggedIn && <DeleteMessage messageId={this.props.id} requestTag={this.props.requestTag}/>} 
       </div>
     );
   }
