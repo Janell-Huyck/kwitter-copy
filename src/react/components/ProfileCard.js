@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./ProfileCard.css";
 import { withAsyncAction } from "../HOCs";
 import { connect } from "react-redux";
-import { CreatedAt, Spinner, DeleteUserButton } from "../components";
+import { Link, CreatedAt, Spinner, DeleteUserButton } from "../components";
+
 
 class ProfileCard extends Component {
   componentDidMount() {
@@ -47,7 +48,8 @@ class ProfileCard extends Component {
           )}
         </div>
 
-        {this.props.username === this.props.loggedIn && <DeleteUserButton />}
+        { this.props.username === this.props.loggedIn && /*<DeleteUserButton /> */
+        <Link to = {`/edit+profile/${this.props.username}`}>Edit profile</Link>}
         {/* 
         
         ********Jordan - I don't see us doing these features so I'm commenting them out*********
