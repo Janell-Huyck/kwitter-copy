@@ -21,13 +21,12 @@ p {
 .user-picture {
   grid-area: 1 / 1 / 3 /3;
   border-radius: 100%;
-  max-height: 35vh;
-  max-width: 35vh;
+  max-height: 38vh;
+  max-width: 38vh;
   object-fit: cover;
-  min-width: 35vh;
-  min-height: 35vh;
-  border: 1px solid red;
-  
+  min-width: 38vh;
+  min-height: 38vh;
+  margin-left: 15px;
 }
 .user-names {
   grid-area: 1/3/5/4;
