@@ -2,34 +2,38 @@ import React from "react";
 import { withAsyncAction } from "../HOCs";
 import "./editUserForm.css";
 import { Input, Button } from "semantic-ui-react";
+import { connect } from 'react-redux'
 import { Spinner } from ".";
 
 class EditUserForm extends React.Component {
     state = {
-        username: '',
+        username: this.props.username,
         password: '',
         displayName: '',
-        bio: '',
-        pictureLocation: '',
+        about: '',
         error: false,
     }
     check = () => {
-        if (this.state.username.trim().length < 3 || this.state.username.trim().length > 20) {
-            return false
-        }
-        else if (this.state.password.trim().length < 3 || this.state.password.trim().length > 20) {
-            return false
-        }
-        else if (this.state.displayName.trim().length < 3 || this.state.displayName.trim().lenght > 20) {
-            return false
-        }
-            return true
+        const { username, password, displayName } = this.state;
+        if (username.trim().length < 3 || username.trim().length > 20) {
+          return false;
+        } else if (password.trim().length < 3 || password.trim().length > 20) {
+          return false;
+        } else if (
+          displayName.trim().length < 3 ||
+          displayName.trim().length > 20
+        ) {
+          return false;
+        } else return true;
     }
     handleSubmit = event => {
         event.preventDefault()
         if (this.check) {
-            this.props.EditUser({
-
+            this.props.updateUserInfo({
+                username: this.state.username,
+                password: this.state.password,
+                displayName: this.state.displayName,
+                about: this.state.about,
             })
         }
     }
@@ -51,21 +55,10 @@ class EditUserForm extends React.Component {
                     <h1>Edit Profile</h1>
                     <Input
                         size='large'
-                        label='New Username'
-                        type='text'
-                        name='username'
-                        placeholder='3-20 characters'
-                        autoFocus
-                        required
-                        onChange={this.handleChange}
-                    />
-                    <Input
-                        size='large'
                         label='New Password'
                         type='password'
                         name='password'
                         placeholder='3-20 characters'
-                        required
                         onChange={this.handleChange}
                     />
                     <Input
@@ -74,7 +67,6 @@ class EditUserForm extends React.Component {
                         type='text'
                         name='displayName'
                         placeholder='3-20 characters'
-                        required
                         onChange={this.handleChange}
                     />
                     <Input
@@ -97,5 +89,11 @@ class EditUserForm extends React.Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        username: state.auth.login.result.username,
+    }
+}
 
-export default EditUserForm;
+
+export default connect(mapStateToProps)(withAsyncAction('users', 'updateUserInfo')(EditUserForm));

@@ -1,5 +1,5 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
-import { GETUSER, CREATEUSER, DELETEUSER, LOGOUT } from "../actionTypes";
+import { GETUSER, CREATEUSER, DELETEUSER, LOGOUT, UPDATEUSERINFO } from "../actionTypes";
 import { login } from "./auth";
 
 const url = domain + "/users";
@@ -89,3 +89,34 @@ export const deleteUser = () => (dispatch, getState) => {
       });
     });
 };
+
+
+export const updateUserInfo = ({username, displayName, about, password}) => (dispatch, getState) => {
+  const token = getState().auth.login.result.token
+  const body = {
+    'password': password,
+    'about': about,
+    'displayName': displayName
+  }
+  console.log(token)
+   dispatch({ type: UPDATEUSERINFO.START }); 
+    fetch (url + '/' + username, {
+    method: 'PATCH',
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders },
+    body: JSON.stringify(body)
+  })
+  .then(handleJsonResponse)
+  .then(result => console.log(result))
+  .then(result => {
+    return dispatch({
+      type: UPDATEUSERINFO.SUCCESS,
+      payload: result
+    })
+    // .catch(err => {
+    //   return Promise.reject(dispatch({
+    //     type: UPDATEUSERINFO.FAIL, 
+    //     payload: err
+    //   }))
+    // })
+  })
+}
