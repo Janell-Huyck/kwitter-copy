@@ -4,14 +4,11 @@ import { connect } from "react-redux";
 
 class DeleteMessage extends React.Component {
   handleDeleteMessage = event => {
-    console.log(this.props.messageId)
     const confirmed = window.confirm(
       "Are you sure you want to delete your message?"
     );
     if (confirmed) {
-      
       this.props.deleteMessage(
-      
         this.props.messageId,
         this.props.token,
         this.props.requestTag
@@ -30,5 +27,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(
-withAsyncAction("messages", "deleteMessage")(DeleteMessage)
+  withAsyncAction("messages", "deleteMessage")(DeleteMessage)
 );

@@ -10,7 +10,7 @@ class MessageList extends React.Component {
   };
 
   componentDidUpdate(prevProps) {
-    if (this.props.profileName !== prevProps.profileName) {
+    if (this.props.requestTag !== prevProps.requestTag) {
       this.props.getMessages(this.props.requestTag);
     }
   }

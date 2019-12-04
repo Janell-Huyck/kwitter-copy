@@ -12,9 +12,6 @@ class DeleteUserButton extends React.Component {
   };
 
   render() {
-    console.log("this.props.username = " + this.props.username);
-    console.log("this.props.loggedInUsername = " + this.props.loggedInUserName);
-
     return (
       this.props.username === this.props.loggedInUserName && (
         <button onClick={this.handleDeleteUser}>Delete your account</button>
