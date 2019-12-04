@@ -96,7 +96,7 @@ export const deleteUser = () => (dispatch, getState) => {
     });
 };
 ////////////// below - adapt to put user picture
-export const putUserPicture = formData => (dispatch, getState) => {
+export const _putUserPicture = formData => (dispatch, getState) => {
   dispatch({ type: PUTUSERPICTURE.START });
 
   const { username, token } = getState().auth.login.result;
@@ -120,5 +120,11 @@ export const putUserPicture = formData => (dispatch, getState) => {
       return Promise.reject(
         dispatch({ type: PUTUSERPICTURE.FAIL, payload: err })
       );
-    })
+    });
+};
+
+export const putUserPicture = (formData, userId) => dispatch => {
+  return dispatch(_putUserPicture(formData)).then(() => {
+    return dispatch(getUser(userId));
+  });
 };

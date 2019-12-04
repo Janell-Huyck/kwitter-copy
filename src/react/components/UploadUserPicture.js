@@ -6,7 +6,7 @@ class UploadUserPicture extends React.Component {
     event.preventDefault();
     console.log("upload activated");
     const formData = new FormData(event.target);
-    this.props.putUserPicture(formData);
+    this.props.putUserPicture(formData, this.props.username);
   };
   render() {
     return (

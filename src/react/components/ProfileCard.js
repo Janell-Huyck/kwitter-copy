@@ -33,7 +33,6 @@ class ProfileCard extends Component {
               alt="user profile"
             />
           ) : (
-            //////check above - may not be in right.  also, make a chained action creator where we get the user details again when we upload another picture.  make it remount.
             <img
               className="user-picture"
               src={
