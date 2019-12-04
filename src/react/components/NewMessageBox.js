@@ -10,6 +10,19 @@ class NewMessageBox extends React.Component {
     this.setState({ value: event.target.value });
   };
 
+  keyPress = event => {
+    if (event.keyCode === 13) {
+      this.props
+        .postMessage({ text: this.state.value }, this.props.requestTag)
+        .then(this.setState({ value: "" }));
+    }
+  };
+
+  //
+  //Thanks to https://stackoverflow.com/questions/43384039/how-to-get-input-textfield-values-when-enter-key-is-pressed-in-react-js/43384732
+  //for the solution of how to get my textarea to submit with the enter key!
+  //
+
   postMessage = event => {
     event.preventDefault();
     this.props
@@ -26,21 +39,6 @@ class NewMessageBox extends React.Component {
     return (
       <div className="newMessageBox">
         <i className="fas fa-user-edit fa-4x newMessageIcon" color="white" />
-        {/* <form>
-           <label for="name">Name:</label>
-           <input type="text" name="name" id="name">
-           <input type="submit" value="Submit">
-        </form> */}
-        {/* <form method="get" id="testformid">
-          <input type="submit" />
-        </form>
-        <textarea
-          form="testformid"
-          name="taname"
-          id="taid"
-          cols="35"
-          wrap="soft"
-        ></textarea> */}
         <form className="newMessageText">
           <textarea
             type="textarea"
@@ -48,6 +46,7 @@ class NewMessageBox extends React.Component {
             rows="7"
             columns="500"
             onChange={this.handleChange}
+            onKeyDown={this.keyPress}
             value={this.state.value}
             className="newMessageTextArea"
           ></textarea>
