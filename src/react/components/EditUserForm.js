@@ -34,8 +34,10 @@ class EditUserForm extends React.Component {
         displayName: this.state.displayName,
         about: this.state.about
       });
+      // return push("/profle/" + this.props.username);
     }
   };
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value

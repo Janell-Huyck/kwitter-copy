@@ -7,6 +7,7 @@ import {
   PUTUSERPICTURE,
   UPDATEUSERINFO
 } from "../actionTypes";
+import { push } from "connected-react-router";
 
 import { login } from "./auth";
 
@@ -98,7 +99,7 @@ export const deleteUser = () => (dispatch, getState) => {
     });
 };
 
-export const updateUserInfo = ({ username, displayName, about, password }) => (
+export const _updateUserInfo = ({ username, displayName, about, password }) => (
   dispatch,
   getState
 ) => {
@@ -109,7 +110,7 @@ export const updateUserInfo = ({ username, displayName, about, password }) => (
     displayName: displayName
   };
   dispatch({ type: UPDATEUSERINFO.START });
-  fetch(url + "/" + username, {
+  return fetch(url + "/" + username, {
     method: "PATCH",
     headers: { Authorization: "Bearer " + token, ...jsonHeaders },
     body: JSON.stringify(body)
@@ -132,6 +133,11 @@ export const updateUserInfo = ({ username, displayName, about, password }) => (
     });
 };
 
+export const updateUserInfo = updateInfo => dispatch => {
+  return dispatch(_updateUserInfo(updateInfo)).then(() =>
+    dispatch(push("/profile/" + updateInfo.username))
+  );
+};
 
 export const _putUserPicture = formData => (dispatch, getState) => {
   dispatch({ type: PUTUSERPICTURE.START });
