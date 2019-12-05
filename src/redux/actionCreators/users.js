@@ -108,7 +108,6 @@ export const updateUserInfo = ({ username, displayName, about, password }) => (
     about: about,
     displayName: displayName
   };
-  console.log(token);
   dispatch({ type: UPDATEUSERINFO.START });
   fetch(url + "/" + username, {
     method: "PATCH",
