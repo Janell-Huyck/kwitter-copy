@@ -4,8 +4,10 @@ import {
   CREATEUSER,
   DELETEUSER,
   LOGOUT,
-  PUTUSERPICTURE
+  PUTUSERPICTURE,
+  UPDATEUSERINFO
 } from "../actionTypes";
+
 import { login } from "./auth";
 
 const url = domain + "/users";
@@ -95,7 +97,41 @@ export const deleteUser = () => (dispatch, getState) => {
       });
     });
 };
-////////////// below - adapt to put user picture
+
+export const updateUserInfo = ({ username, displayName, about, password }) => (
+  dispatch,
+  getState
+) => {
+  const token = getState().auth.login.result.token;
+  const body = {
+    password: password,
+    about: about,
+    displayName: displayName
+  };
+  console.log(token);
+  dispatch({ type: UPDATEUSERINFO.START });
+  fetch(url + "/" + username, {
+    method: "PATCH",
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders },
+    body: JSON.stringify(body)
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: UPDATEUSERINFO.SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err => {
+      return Promise.reject(
+        dispatch({
+          type: UPDATEUSERINFO.FAIL,
+          payload: err
+        })
+      );
+    });
+};
+
 export const _putUserPicture = formData => (dispatch, getState) => {
   dispatch({ type: PUTUSERPICTURE.START });
 

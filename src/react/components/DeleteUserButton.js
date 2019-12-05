@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "semantic-ui-react";
 import { withAsyncAction, connect } from "../HOCs";
 
 class DeleteUserButton extends React.Component {
@@ -14,7 +15,9 @@ class DeleteUserButton extends React.Component {
   render() {
     return (
       this.props.username === this.props.loggedInUserName && (
-        <button onClick={this.handleDeleteUser}>Delete your account</button>
+        <Button id="deleteUserButton" onClick={this.handleDeleteUser}>
+          Delete your account
+        </Button>
       )
     );
   }
