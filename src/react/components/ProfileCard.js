@@ -46,17 +46,22 @@ class ProfileCard extends Component {
               />
             )}
           </div>
+          
           <div className="user-names">
-            Username:
-            <h2>{this.props.username}</h2>
-            Display Name:
-            <h2>{this.props.displayName}</h2>
-            joined:
-            <CreatedAt />
+            <div className="titleUserName">
+            Username :
+            <div className="username">{this.props.username}</div></div>
+            <div className="titleDisplayName">
+            Display Name :
+            <div className="displayName">{this.props.displayName}</div></div>
+            <div className="titleTime">
+            joined :
+            <div className="displayTime"> <CreatedAt /></div>
+            </div>
           </div>
           <div className="bio">
             {this.props.about ? (
-              "Bio: " + this.props.about
+              "Bio : " + this.props.about
             ) : (
               <p>"No bio provided by this user"</p>
             )}
