@@ -2,12 +2,8 @@ import React from "react";
 import { withAsyncAction } from "../HOCs";
 import "./EditUserForm.css";
 import { Input, Button } from "semantic-ui-react";
-<<<<<<< HEAD
 import { connect } from 'react-redux'
 
-=======
-import { connect } from "react-redux";
->>>>>>> 7e6c03dfd405ab47bf84667402894438fffe512d
 
 class EditUserForm extends React.Component {
   state = {
