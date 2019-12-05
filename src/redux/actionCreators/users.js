@@ -114,6 +114,7 @@ export const updateUserInfo = ({ username, displayName, about, password }) => (
     headers: { Authorization: "Bearer " + token, ...jsonHeaders },
     body: JSON.stringify(body)
   })
+
     .then(handleJsonResponse)
     .then(result => {
       return dispatch({
@@ -130,6 +131,7 @@ export const updateUserInfo = ({ username, displayName, about, password }) => (
       );
     });
 };
+
 
 export const _putUserPicture = formData => (dispatch, getState) => {
   dispatch({ type: PUTUSERPICTURE.START });
