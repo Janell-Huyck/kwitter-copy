@@ -3,7 +3,7 @@ import { withAsyncAction } from "../HOCs";
 import "./editUserForm.css";
 import { Input, Button } from "semantic-ui-react";
 import { connect } from 'react-redux'
-import { Spinner } from ".";
+
 
 class EditUserForm extends React.Component {
     state = {

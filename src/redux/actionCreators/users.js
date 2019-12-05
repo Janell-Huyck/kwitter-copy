@@ -115,19 +115,18 @@ export const updateUserInfo = ({username, displayName, about, password}) => (dis
     body: JSON.stringify(body)
   })
   .then(handleJsonResponse)
-  .then(result => console.log(result))
   .then(result => {
     return dispatch({
       type: UPDATEUSERINFO.SUCCESS,
       payload: result
     })
-    // .catch(err => {
-    //   return Promise.reject(dispatch({
-    //     type: UPDATEUSERINFO.FAIL, 
-    //     payload: err
-    //   }))
-    // })
   })
+    .catch(err => {
+      return Promise.reject(dispatch({
+        type: UPDATEUSERINFO.FAIL, 
+        payload: err
+      }))
+    })
 }
 
 ////////////// below - adapt to put user picture
