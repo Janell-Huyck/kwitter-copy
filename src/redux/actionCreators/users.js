@@ -115,6 +115,7 @@ export const _updateUserInfo = ({ username, displayName, about, password }) => (
     headers: { Authorization: "Bearer " + token, ...jsonHeaders },
     body: JSON.stringify(body)
   })
+
     .then(handleJsonResponse)
     .then(result => {
       return dispatch({
