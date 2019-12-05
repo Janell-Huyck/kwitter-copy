@@ -1,7 +1,7 @@
 {
   "name": "kwitter",
   "version": "0.1.0",
-  "homepage": "https://kenzie-academy.gitlab.io/se/fe/final-projects/assessment---kwitter-frontend",
+  "homepage": "https://gitlab.com/givond4/assessment---kwitter-frontend",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
@@ -9,6 +9,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
+    "axios": "^0.19.0",
     "connected-react-router": "^6.5.2",
     "history": "^4.10.1",
     "mdbreact": "^4.22.1",
@@ -44,6 +45,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "dependency-cruiser": "^5.3.1"
+    "dependency-cruiser": "^5.4.0"
   }
 }

@@ -28,3 +28,8 @@ export const UNLIKEMESSAGE = createActionTypes("UNLIKEMESSAGE");
 export const GETUSER = createActionTypes("GETUSER");
 export const CREATEUSER = createActionTypes("CREATEUSER");
 export const DELETEUSER = createActionTypes("DELETEUSER");
+
+export const UPDATEUSERINFO = createActionTypes('UPDATEUSERINFO')
+
+export const PUTUSERPICTURE = createActionTypes("PUTUSERPICTURE");
+

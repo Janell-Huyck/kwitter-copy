@@ -3,14 +3,14 @@ import { DELETEMESSAGE, GETMESSAGES, POSTMESSAGE } from "../actionTypes";
 
 const url = domain + "/messages";
 
-export const deleteMessage = messageId => dispatch => {
+export const _deleteMessage = (messageId, token) => dispatch => {
   dispatch({
     type: DELETEMESSAGE.START
   });
-  return fetch(url + `/${messageId}`, {
+  return fetch(url + `/` + messageId, {
     method: "DELETE",
-    headers: jsonHeaders,
-    body: JSON.stringify(messageId)
+    headers: { ...jsonHeaders, Authorization: "Bearer " + token }
+    // body: JSON.stringify(messageId)
   })
     .then(handleJsonResponse)
     .then(result => {
@@ -72,6 +72,12 @@ const _postMessage = messageData => dispatch => {
 
 export const postMessage = (messageBody, requestTag) => dispatch => {
   return dispatch(_postMessage(messageBody)).then(() => {
+    return dispatch(getMessages(requestTag));
+  });
+};
+
+export const deleteMessage = (messageId, token, requestTag) => dispatch => {
+  return dispatch(_deleteMessage(messageId, token)).then(() => {
     return dispatch(getMessages(requestTag));
   });
 };

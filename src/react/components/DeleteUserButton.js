@@ -1,5 +1,6 @@
 import React from "react";
-import { withAsyncAction } from "../HOCs";
+import { Button } from "semantic-ui-react";
+import { withAsyncAction, connect } from "../HOCs";
 
 class DeleteUserButton extends React.Component {
   handleDeleteUser = event => {
@@ -12,8 +13,21 @@ class DeleteUserButton extends React.Component {
   };
 
   render() {
-    return <button onClick={this.handleDeleteUser}>Delete your account</button>;
+    return (
+      this.props.username === this.props.loggedInUserName && (
+        <Button id="deleteUserButton" onClick={this.handleDeleteUser}>
+          Delete your account
+        </Button>
+      )
+    );
   }
 }
 
-export default withAsyncAction("users", "deleteUser")(DeleteUserButton);
+const mapStateToProps = state => {
+  return { loggedInUserName: state.auth.login.result.username };
+};
+//////////////check this - button is not rendering now.
+
+export default connect(mapStateToProps)(
+  withAsyncAction("users", "deleteUser")(DeleteUserButton)
+);

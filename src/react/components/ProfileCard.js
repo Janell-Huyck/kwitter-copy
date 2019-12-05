@@ -2,62 +2,81 @@ import React, { Component } from "react";
 import "./ProfileCard.css";
 import { withAsyncAction } from "../HOCs";
 import { connect } from "react-redux";
-import { CreatedAt, Spinner, DeleteUserButton } from "../components";
+import { Button } from "semantic-ui-react";
+
+import {
+  Link,
+  CreatedAt,
+  Spinner,
+  DeleteUserButton,
+  UploadUserPicture
+} from "../components";
 
 class ProfileCard extends Component {
   componentDidMount() {
     this.props.getUser(this.props.profileName);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.profileName !== prevProps.profileName) {
+      this.props.getUser(this.props.profileName);
+    }
+  }
+
   render() {
     return !this.props.result ? (
       <Spinner />
     ) : (
-      <div className="pfp-card">
-        <div className="user-picture">
-          {this.props.pictureLocation ? (
-            <img
-              className="user-picture"
-              src={this.props.pictureLocation}
-              alt="user profile"
-            />
-          ) : (
-            <img
-              className="user-picture"
-              src={
-                "https://cdn.pixabay.com/photo/2018/04/22/22/57/hacker-3342696_960_720.jpg"
-              }
-              alt="user profile"
-            />
+      <div>
+        <div className="pfp-card">
+          <div className="user-picture">
+            {this.props.pictureLocation ? (
+              <img
+                className="user-picture"
+                src={`https://kwitter-api.herokuapp.com${this.props.pictureLocation}`}
+                alt="user profile"
+              />
+            ) : (
+              <img
+                className="user-picture"
+                src={
+                  "https://cdn.pixabay.com/photo/2018/04/22/22/57/hacker-3342696_960_720.jpg"
+                }
+                alt="user profile"
+              />
+            )}
+          </div>
+          
+          <div className="user-names">
+            <div className="titleUserName">
+            Username :
+            <div className="username">{this.props.username}</div></div>
+            <div className="titleDisplayName">
+            Display Name :
+            <div className="displayName">{this.props.displayName}</div></div>
+            <div className="titleTime">
+            joined :
+            <div className="displayTime"> <CreatedAt /></div>
+            </div>
+          </div>
+          <div className="bio">
+            {this.props.about ? (
+              "Bio : " + this.props.about
+            ) : (
+              <p>"No bio provided by this user"</p>
+            )}
+          </div>
+        </div>
+        <div className="profileButtons">
+          {this.props.username === this.props.loggedIn && (
+            <Link to={`/edit+profile/${this.props.username}`}>
+              <Button id="editProfileButton">Edit profile</Button>
+            </Link>
           )}
-        </div>
-        <div className="user-names">
-          <p>Username:</p>
-          <h2>{this.props.username}</h2>
-          <p>Display Name:</p>
-          <h2>{this.props.displayName}</h2>
-          <h4>joined:</h4>
-          <CreatedAt />
-        </div>
-        <div className="bio">
-          {this.props.about ? (
-            "Bio: " + this.props.about
-          ) : (
-            <p>"No bio provided by this user"</p>
-          )}
-        </div>
 
-        {this.props.username === this.props.loggedIn && <DeleteUserButton />}
-        {/* 
-        
-        ********Jordan - I don't see us doing these features so I'm commenting them out*********
-        
-        <div className="counters">
-          <span>0 kweets</span>
-          <span>0 following</span>
-          <span>0 followers</span>
-          <span>0 likes</span>
-        </div> */}
+          <DeleteUserButton username={this.props.username} />
+          <UploadUserPicture username={this.props.username} />
+        </div>
       </div>
     );
   }
