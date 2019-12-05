@@ -1,6 +1,6 @@
 import React from "react";
 import { withAsyncAction } from "../HOCs";
-import "./editUserForm.css";
+import "./EditUserForm.css";
 import { Input, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 
