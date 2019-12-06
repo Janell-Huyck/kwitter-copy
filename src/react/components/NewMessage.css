@@ -17,6 +17,8 @@
   border-radius: 1em;
   height: 85%;
   padding: 10px;
+  border: 5px solid #51eaea;
+
 }
 
 .newMessageIcon {
@@ -53,4 +55,8 @@ textarea {
   color: black;
   border-radius: 1em;
   min-width: 7em;
+}
+
+h4 {
+  color: #51eaea;
 }
