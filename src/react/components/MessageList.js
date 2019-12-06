@@ -26,7 +26,7 @@ class MessageList extends React.Component {
               <MessageCard
                 requestTag={this.props.requestTag}
                 id={message.id}
-                username={message.username}
+                author={message.username}
                 text={message.text}
                 createdAt={message.createdAt}
                 likes={message.likes}

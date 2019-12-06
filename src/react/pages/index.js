@@ -3,7 +3,7 @@ import Profile from "./Profile";
 import NotFound from "./NotFound";
 import MessageFeed from "./MessageFeed";
 import Register from "./Register";
-import EditUser from "./EditUser"
+import EditUser from "./EditUser";
 
 export default {
   Home: { path: "/", component: Home },

@@ -1,8 +1,12 @@
 import React from "react";
 import { withAsyncAction } from "../HOCs";
-import "./EditUserForm.css";
+import "./editUserForm.css";
 import { Input, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
+import {
+  DeleteUserButton,
+  UploadUserPicture
+} from "../components";
 
 class EditUserForm extends React.Component {
   state = {
@@ -68,7 +72,7 @@ class EditUserForm extends React.Component {
             type="password"
             name="password"
             required
-            placeholder="3-20 characters, required"
+            placeholder="3-20 characters, Required"
             onChange={this.handleChange}
           />
           <Input
@@ -76,7 +80,7 @@ class EditUserForm extends React.Component {
             label="New Display Name"
             type="text"
             name="displayName"
-            placeholder="3-20 characters, required"
+            placeholder="3-20 characters, Required"
             onChange={this.handleChange}
           />
           <Input
@@ -84,9 +88,11 @@ class EditUserForm extends React.Component {
             label="New About"
             type="text"
             name="about"
-            placeholder="Say something about yourself.  (Required)"
+            placeholder="Say something about yourself. Required"
             onChange={this.handleChange}
           />
+          <UploadUserPicture username={this.props.username} />
+          <DeleteUserButton username={this.props.username} />
           <Button size="huge" type="submit">
             Submit
           </Button>
