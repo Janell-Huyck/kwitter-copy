@@ -7,7 +7,6 @@
   flex-direction: column;
   align-items: center;
   height: 55%;
-  /* margin-bottom: 200px; */
   margin-top: 30px;
 }
 
@@ -16,6 +15,10 @@
   padding-left: 1em;
   flex-direction: column;
   align-items: center;
+}
+
+.menu-links a:hover {
+  color: #51eaea;
 }
 
 .menu-links a {
@@ -29,11 +32,11 @@
   font-size: 110px;
   margin-top: 20px;
   font-family: "Carter One", cursive;
+  color: #51eaea;
 }
 
 .menu-links .selected {
-  color: gray;
-  opacity: 0.5;
+  color: #431299;
   text-decoration: none;
   cursor: default;
 }
