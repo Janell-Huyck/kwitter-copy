@@ -19,8 +19,10 @@ class NewMessageBox extends React.Component {
     }
 
     if (event.keyCode === 13) {
-      this.postMessageByEnter();
-      this.setState({ value: "" });
+      if (this.state.value.length > 2 && this.state.value.length < 256) {
+        this.postMessageByEnter();
+        this.setState({ value: "" });
+      }
     } else {
       this.setState({ value: event.target.value });
     }
