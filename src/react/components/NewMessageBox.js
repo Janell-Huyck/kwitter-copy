@@ -4,17 +4,27 @@ import { Spinner } from ".";
 import "./NewMessage.css";
 
 class NewMessageBox extends React.Component {
-  state = { value: "" };
-
-  handleChange = event => {
-    this.setState({ value: event.target.value });
+  state = {
+    value: ""
   };
 
   keyPress = event => {
+    if (
+      event.target.value.trim().length < 2 ||
+      event.target.value.trim().length > 255
+    ) {
+      event.target.style.color = "red";
+    } else {
+      event.target.style.color = "gray";
+    }
+
     if (event.keyCode === 13) {
-      this.props
-        .postMessage({ text: this.state.value }, this.props.requestTag)
-        .then(this.setState({ value: "" }));
+      if (this.state.value.length > 2 && this.state.value.length < 256) {
+        this.postMessageByEnter();
+        this.setState({ value: "" });
+      }
+    } else {
+      this.setState({ value: event.target.value });
     }
   };
 
@@ -23,11 +33,21 @@ class NewMessageBox extends React.Component {
   //for the solution of how to get my textarea to submit with the enter key!
   //
 
-  postMessage = event => {
+  postMessageBySubmit = event => {
     event.preventDefault();
-    this.props
-      .postMessage({ text: this.state.value }, this.props.requestTag)
-      .then(this.setState({ value: "" }));
+    if (this.state.value.length > 2 && this.state.value.length < 256) {
+      this.props
+        .postMessage({ text: this.state.value }, this.props.requestTag)
+        .then(this.setState({ value: "" }));
+    }
+  };
+
+  postMessageByEnter = event => {
+    if (this.state.value.length > 2 && this.state.value.length < 256) {
+      this.props
+        .postMessage({ text: this.state.value }, this.props.requestTag)
+        .then(this.setState({ value: "" }));
+    }
   };
 
   handleCancel = event => {
@@ -42,10 +62,10 @@ class NewMessageBox extends React.Component {
         <form className="newMessageText">
           <textarea
             type="textarea"
-            placeholder="What's Happening . . ."
+            placeholder="What's Happening . . .  (2 - 255 chrs)"
             rows="7"
             columns="500"
-            onChange={this.handleChange}
+            onChange={this.keyPress}
             onKeyDown={this.keyPress}
             value={this.state.value}
             className="newMessageTextArea"
@@ -54,7 +74,7 @@ class NewMessageBox extends React.Component {
           <div className="newMessageButtonDiv">
             <input
               type="submit"
-              onClick={this.postMessage}
+              onClick={this.postMessageBySubmit}
               className="newMessageButton"
               value="Send Kweet"
             ></input>
