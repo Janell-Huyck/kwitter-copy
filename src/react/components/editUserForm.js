@@ -6,6 +6,7 @@ import { DeleteUserButton, UploadUserPicture, EditUserProfileCard } from ".";
 import { Link } from ".";
 import { getUser } from "../../redux/index";
 
+let passwordMatch = false;
 class EditUserForm extends React.Component {
   state = {
     username: this.props.username,
@@ -25,11 +26,13 @@ class EditUserForm extends React.Component {
       displayName.trim().length > 20
     ) {
       return false;
+    } else if (passwordMatch === false) {
+      return false;
     } else return true;
   };
   handleSubmit = event => {
     event.preventDefault();
-    if (this.check) {
+    if (this.check && passwordMatch === true) {
       this.props.updateUserInfo({
         username: this.state.username,
         password: this.state.password,
@@ -57,10 +60,12 @@ class EditUserForm extends React.Component {
       }
     }
     if (event.target.name === "confirmNewPassword") {
-      if (event.target.value !== event.state.password) {
+      if (event.target.value !== this.state.password) {
         event.target.style.color = "red";
+        passwordMatch = false;
       } else {
         event.target.style.color = "gray";
+        passwordMatch = true;
       }
     }
   };
@@ -127,7 +132,7 @@ class EditUserForm extends React.Component {
           <DeleteUserButton username={this.props.username} />
           <Link to={`/profile/${this.props.username}`}>
             <button id="returnFromEdit">
-              <h4>Go Back</h4>
+              <h4>Return to Profile</h4>
             </button>
           </Link>
         </div>
