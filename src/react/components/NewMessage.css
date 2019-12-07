@@ -47,6 +47,7 @@ textarea {
   grid-area: 5/2/6/6;
   display: flex;
   justify-content: space-around;
+  max-width: 20vw;
 }
 
 .newMessageButton {
@@ -54,6 +55,7 @@ textarea {
   color: black;
   border-radius: 1em;
   min-width: 7em;
+  padding: 0.1em;
 }
 
 h4 {

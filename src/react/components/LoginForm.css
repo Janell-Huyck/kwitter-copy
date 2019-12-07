@@ -19,7 +19,6 @@
   padding-bottom: 2em;
 }
 #formStyle {
-  
   align-items: center;
   justify-content: center;
   margin-top: -208px;
@@ -50,8 +49,7 @@
   font-weight: 100;
   color: #5a4576;
   text-decoration-line: underline;
-  
-} 
+}
 
 #login-form {
   display: flex;
@@ -105,4 +103,3 @@
   color: #5a4576;
   text-decoration-line: underline;
 }
-

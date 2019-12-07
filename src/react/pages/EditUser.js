@@ -1,21 +1,18 @@
 import React from "react";
-import { Menu, EditUserForm, Link } from "../components";
+import { Menu, EditUserForm } from "../components";
 import { userIsAuthenticated } from "../HOCs";
 import { connect } from "react-redux";
-
-import { Button } from "semantic-ui-react";
 
 class EditUser extends React.Component {
   render() {
     return (
       <>
         <Menu />
+        <h1 style={{ margin: 0, padding: 0, textSize: "large" }}>
+          Edit Profile (All Fields Required)
+        </h1>
+
         <EditUserForm />
-        <Link to={`/profile/${this.props.username}`}>
-          <Button>
-            <h4>Go Back</h4>
-          </Button>
-        </Link>
       </>
     );
   }
