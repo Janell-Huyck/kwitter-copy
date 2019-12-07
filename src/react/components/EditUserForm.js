@@ -1,12 +1,9 @@
 import React from "react";
 import { withAsyncAction } from "../HOCs";
-import "./editUserForm.css";
+import "./EditUserForm.css";
 import { Input, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
-import {
-  DeleteUserButton,
-  UploadUserPicture
-} from "../components";
+import { DeleteUserButton, UploadUserPicture } from ".";
 
 class EditUserForm extends React.Component {
   state = {

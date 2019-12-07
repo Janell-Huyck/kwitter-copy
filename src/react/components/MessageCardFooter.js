@@ -4,16 +4,6 @@ import LikeMessage from "./LikeMessage";
 import UnlikeMessage from "./UnlikeMessage";
 
 class MessageCardFooter extends React.Component {
-  componentDidMount = () => {
-    console.log(
-      this.props.author +
-        "= the author and " +
-        JSON.parse(localStorage.login).result.username +
-        " is the username"
-    );
-    console.log(this.messageId + " " + this.shouldDisplayDeleteButton());
-  };
-
   shouldDisplayDeleteButton = () => {
     if (JSON.parse(localStorage.login).result.username === this.props.author) {
       return true;
