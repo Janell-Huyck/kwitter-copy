@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import "./ProfileCard.css";
 import { withAsyncAction } from "../HOCs";
 import { connect } from "react-redux";
-import { Button } from "semantic-ui-react";
 
-import { Link, CreatedAt, Spinner } from ".";
+import { Spinner } from ".";
 
 class ProfileCard extends Component {
   componentDidMount() {

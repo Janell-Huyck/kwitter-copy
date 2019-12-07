@@ -1,7 +1,6 @@
 import React from "react";
 import { withAsyncAction } from "../HOCs";
 import "./EditUserForm.css";
-import { Input, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { DeleteUserButton, UploadUserPicture, EditUserProfileCard } from ".";
 import { Link } from ".";
