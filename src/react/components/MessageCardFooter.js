@@ -40,7 +40,6 @@ class MessageCardFooter extends React.Component {
         <div>{this.props.likes.length} Likes</div>
         {this.shouldDisplayDeleteButton() === true ? (
           <DeleteMessage
-            style={{ display: "none" }}
             messageId={this.props.id}
             requestTag={this.props.requestTag}
           />
