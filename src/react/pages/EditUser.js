@@ -9,7 +9,7 @@ class EditUser extends React.Component {
       <>
         <Menu />
         <h1 style={{ margin: 0, padding: 0, textSize: "large" }}>
-          Edit Profile (All Fields Required)
+          Edit Profile
         </h1>
 
         <EditUserForm />
