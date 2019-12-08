@@ -20,8 +20,7 @@ p {
   object-fit: cover;
   min-width: 38vh;
   min-height: 38vh;
-  margin-top: 15px;
-  /* margin-right: 40px; */
+  margin: 15px;
 }
 .info-box {
   display: flex;
@@ -35,6 +34,7 @@ p {
   height: 100%;
   align-items: stretch;
   border: 5px solid #51eaea;
+  margin: 15px;
 }
 
 .username {
@@ -96,12 +96,9 @@ p {
 .bio {
   display: flex;
   flex-direction: row;
-  /* height: 100%; */
   width: 100%;
   justify-content: stretch;
   padding: 5px 10px 5px 10px;
-  /* margin-top:200px; */
-  /* margin-left:-190px; */
   font-size: 15px;
   max-width: 1000%;
   font-weight: bold;
@@ -128,10 +125,9 @@ p {
 
 #editProfileButton {
   max-width: 9em;
-  max-height: 3.5em;
+  max-height: 3em;
   background-color: #5fe;
   border-radius: 1em;
-  padding: 20px;
-  /* margin-top: 10px; */
+  padding: 15px;
   color: black;
 }
