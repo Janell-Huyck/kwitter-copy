@@ -15,7 +15,7 @@ class EditUserForm extends React.Component {
     password: '',
     displayName: this.props.displayName,
     about: this.props.about,
-    error: false
+    // error: false
   };
   check = () => {
     const { username, password, displayName } = this.state;
@@ -82,9 +82,27 @@ class EditUserForm extends React.Component {
         <div className="editColumnLeft">
           <form id="edit-profile-form" onSubmit={this.handleSubmit}>
             <h4>
-              Edit User Info: (must submit new password and display name due to
-              API constraints)
+              Edit User Info: (Must enter password to confirm changes)
             </h4>
+
+            <div className="ui big input">
+              <div className="ui label big">New Display Name</div>
+              <input
+                type="text"
+                name="displayName"
+                placeholder={this.state.displayName}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="ui big input">
+              <div className="ui label big">New About</div>
+              <input
+                type="text"
+                name="about"
+                placeholder={this.state.about}
+                onChange={this.handleChange}
+              />
+            </div>
             <div className="ui big input">
               <div className="ui label big">New Password</div>
               <input
@@ -101,26 +119,7 @@ class EditUserForm extends React.Component {
                 type="password"
                 name="confirmNewPassword"
                 required
-                placeholder="3-20 characters, Req"
-                onChange={this.handleChange}
-              />
-            </div>
-            <div className="ui big input">
-              <div className="ui label big">New Display Name</div>
-              <input
-                type="text"
-                name="displayName"
-                placeholder="3-20 characters, Req"
-                onChange={this.handleChange}
-                required
-              />
-            </div>
-            <div className="ui big input">
-              <div className="ui label big">New About</div>
-              <input
-                type="text"
-                name="about"
-                placeholder="0-255 chrs"
+                placeholder="Confirm Password"
                 onChange={this.handleChange}
               />
             </div>
@@ -147,12 +146,15 @@ class EditUserForm extends React.Component {
   }
 }
 const mapStateToProps = state => {
-  return {
-    username: state.auth.login.result.username,
-    displayName: state.users.getUser.result.user.displayName,
-    about: state.users.getUser.result.user.about,
+  if (state.users.getUser.result) {
+    return {
+      username: state.users.getUser.result.user.username,
+      pictureLocation: state.users.getUser.result.user.pictureLocation,
+      displayName: state.users.getUser.result.user.displayName,
+      about: state.users.getUser.result.user.about
+    };
   };
-};
+}
 
 const mapDispatchToProps = { getUser };
 
