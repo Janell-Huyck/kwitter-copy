@@ -63,7 +63,7 @@ class NewMessageBox extends React.Component {
           <textarea
             type="textarea"
             placeholder="What's Happening . . .  (2 - 255 chrs)"
-            rows="7"
+            rows="5"
             columns="500"
             onChange={this.keyPress}
             onKeyDown={this.keyPress}
