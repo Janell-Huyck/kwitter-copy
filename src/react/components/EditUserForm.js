@@ -6,18 +6,17 @@ import { DeleteUserButton, UploadUserPicture, EditUserProfileCard } from ".";
 import { Link } from ".";
 import { getUser } from "../../redux/index";
 
-
 let passwordMatch = false;
 
 class EditUserForm extends React.Component {
   state = {
     username: this.props.username,
-    password: '',
+    password: "",
     displayName: this.props.displayName,
-    about: this.props.about,
+    about: this.props.about
   };
   componentDidMount() {
-    this.props.getUser(this.props.profileName)
+    this.props.getUser(this.props.profileName);
   }
 
   check = () => {
@@ -46,8 +45,6 @@ class EditUserForm extends React.Component {
       });
 
       //  return push("/profle/" + this.props.username);
-
-
     }
   };
 
@@ -84,9 +81,7 @@ class EditUserForm extends React.Component {
       <div className="editPageArea">
         <div className="editColumnLeft">
           <form id="edit-profile-form" onSubmit={this.handleSubmit}>
-            <h4>
-              Edit User Info: (Must enter password to confirm changes)
-            </h4>
+            <h4>Edit User Info: (Must enter password to confirm changes)</h4>
 
             <div className="ui big input">
               <div className="ui label big">New Display Name</div>
@@ -156,8 +151,8 @@ const mapStateToProps = state => {
       displayName: state.users.getUser.result.user.displayName,
       about: state.users.getUser.result.user.about
     };
-  };
-}
+  } else return {};
+};
 
 const mapDispatchToProps = { getUser };
 
