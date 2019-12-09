@@ -13,4 +13,4 @@ pages:
   only:
     - master
 variables:
-  PUBLIC_URL: "https://gitlab.com/givond4/assessment---kwitter-frontend"
+  PUBLIC_URL: "/assessment---kwitter-frontend"

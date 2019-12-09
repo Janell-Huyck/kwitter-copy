@@ -16,4 +16,3 @@ const logout = (state = initialState, action) => {
 };
 
 export default withAsyncReducer(LOGOUT, logout);
-//withAsyncReducer is wrapping our reducer.

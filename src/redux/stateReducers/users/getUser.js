@@ -16,4 +16,3 @@ const getUser = (state = initialState, action) => {
 };
 
 export default withAsyncReducer(GETUSER, getUser);
-//withAsyncReducer is wrapping our reducer.

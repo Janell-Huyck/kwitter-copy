@@ -4,13 +4,7 @@ import { withAsyncAction } from "../HOCs";
 import { connect } from "react-redux";
 import { Button } from "semantic-ui-react";
 
-import {
-  Link,
-  CreatedAt,
-  Spinner,
-  DeleteUserButton,
-  UploadUserPicture
-} from "../components";
+import { Link, CreatedAt, Spinner } from "../components";
 
 class ProfileCard extends Component {
   componentDidMount() {
@@ -27,55 +21,55 @@ class ProfileCard extends Component {
     return !this.props.result ? (
       <Spinner />
     ) : (
-      <div>
-        <div className="pfp-card">
-          <div className="user-picture">
-            {this.props.pictureLocation ? (
-              <img
-                className="user-picture"
-                src={`https://kwitter-api.herokuapp.com${this.props.pictureLocation}`}
-                alt="user profile"
-              />
-            ) : (
-              <img
-                className="user-picture"
-                src={
-                  "https://cdn.pixabay.com/photo/2018/04/22/22/57/hacker-3342696_960_720.jpg"
-                }
-                alt="user profile"
-              />
-            )}
+      <div className="pfp-card">
+        <div className="user-picture">
+          {this.props.pictureLocation ? (
+            <img
+              className="user-picture"
+              src={`https://kwitter-api.herokuapp.com${this.props.pictureLocation}`}
+              alt="user profile"
+            />
+          ) : (
+            <img
+              className="user-picture"
+              src={
+                "https://cdn.pixabay.com/photo/2018/04/22/22/57/hacker-3342696_960_720.jpg"
+              }
+              alt="user profile"
+            />
+          )}
+        </div>
+
+        <div className="info-box">
+          <div className="titleUserName">
+            Username:
+            <div className="username">{this.props.username}</div>
           </div>
-          
-          <div className="user-names">
-            <div className="titleUserName">
-            Username :
-            <div className="username">{this.props.username}</div></div>
-            <div className="titleDisplayName">
-            Display Name :
-            <div className="displayName">{this.props.displayName}</div></div>
-            <div className="titleTime">
-            joined :
-            <div className="displayTime"> <CreatedAt /></div>
+          <div className="titleDisplayName">
+            Display Name:
+            <div className="displayName">{this.props.displayName}</div>
+          </div>
+          <div className="titleTime">
+            Joined:
+            <div className="displayTime">
+              {" "}
+              <CreatedAt />
             </div>
           </div>
           <div className="bio">
             {this.props.about ? (
-              "Bio : " + this.props.about
+              this.props.about
             ) : (
               <p>"No bio provided by this user"</p>
             )}
           </div>
-        </div>
-        <div className="profileButtons">
-          {this.props.username === this.props.loggedIn && (
-            <Link to={`/edit+profile/${this.props.username}`}>
-              <Button id = 'editProfileButton' >Edit Profile</Button>
-            </Link>
-          )}
-
-          <DeleteUserButton username={this.props.username} />
-          <UploadUserPicture username={this.props.username} />
+          <div className="profileButtons">
+            {this.props.username === this.props.loggedIn && (
+              <Link to={`/edit+profile/${this.props.username}`}>
+                <Button id="editProfileButton">Edit profile</Button>
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     );

@@ -1,9 +1,16 @@
 import React from "react";
 import { withAsyncAction } from "../HOCs";
-import "./editUserForm.css";
-import { Input, Button } from "semantic-ui-react";
-import { connect } from "react-redux";
 
+
+import "./EditUserForm.css";
+
+import { connect } from "react-redux";
+import { DeleteUserButton, UploadUserPicture, EditUserProfileCard } from ".";
+import { Link } from ".";
+import { getUser } from "../../redux/index";
+
+
+let passwordMatch = false;
 
 class EditUserForm extends React.Component {
   state = {
@@ -24,18 +31,23 @@ class EditUserForm extends React.Component {
       displayName.trim().length > 20
     ) {
       return false;
+    } else if (passwordMatch === false) {
+      return false;
     } else return true;
   };
   handleSubmit = event => {
     event.preventDefault();
-    if (this.check) {
+    if (this.check && passwordMatch === true) {
       this.props.updateUserInfo({
         username: this.state.username,
         password: this.state.password,
         displayName: this.state.displayName,
         about: this.state.about
       });
+
       //  return push("/profle/" + this.props.username);
+
+
     }
   };
 
@@ -56,42 +68,84 @@ class EditUserForm extends React.Component {
         event.target.style.color = "gray";
       }
     }
+    if (event.target.name === "confirmNewPassword") {
+      if (event.target.value !== this.state.password) {
+        event.target.style.color = "red";
+        passwordMatch = false;
+      } else {
+        event.target.style.color = "gray";
+        passwordMatch = true;
+      }
+    }
   };
 
   render() {
     return (
-      <React.Fragment>
-        <form id="edit-profile-form" onSubmit={this.handleSubmit}>
-          <h1>Edit Profile</h1>
-          <Input
-            size="large"
-            label="New Password"
-            type="password"
-            name="password"
-            placeholder="3-20 characters, required"
-            onChange={this.handleChange}
-          />
-          <Input
-            size="large"
-            label="New Display Name"
-            type="text"
-            name="displayName"
-            placeholder="3-20 characters"
-            onChange={this.handleChange}
-          />
-          <Input
-            size="large"
-            label="New About"
-            type="text"
-            name="about"
-            placeholder="Say something about yourself."
-            onChange={this.handleChange}
-          />
-          <Button size="huge" type="submit">
-            Submit
-          </Button>
-        </form>
-      </React.Fragment>
+      <div className="editPageArea">
+        <div className="editColumnLeft">
+          <form id="edit-profile-form" onSubmit={this.handleSubmit}>
+            <h4>
+              Edit User Info: (must submit new password and display name due to
+              API constraints)
+            </h4>
+            <div className="ui big input">
+              <div className="ui label big">New Password</div>
+              <input
+                type="password"
+                name="password"
+                required
+                placeholder="3-20 characters, Req"
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="ui big input">
+              <div className="ui label big">Confirm New Pw</div>
+              <input
+                type="password"
+                name="confirmNewPassword"
+                required
+                placeholder="3-20 characters, Req"
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="ui big input">
+              <div className="ui label big">New Display Name</div>
+              <input
+                type="text"
+                name="displayName"
+                placeholder="3-20 characters, Req"
+                onChange={this.handleChange}
+                required
+              />
+            </div>
+            <div className="ui big input">
+              <div className="ui label big">New About</div>
+              <input
+                type="text"
+                name="about"
+                placeholder="0-255 chrs"
+                onChange={this.handleChange}
+              />
+            </div>
+            <button className="ui button" id="editSubmit" type="submit">
+              Submit
+            </button>
+          </form>
+        </div>
+        <div className="editColumnMiddle">
+          <h4>Change Profile Picture</h4>
+          <EditUserProfileCard profileName={this.props.username} />
+          <UploadUserPicture username={this.props.username} />
+        </div>
+        <div className="editColumnRight">
+          <DeleteUserButton username={this.props.username} />
+          <Link to={`/profile/${this.props.username}`}>
+            <button id="returnFromEdit">
+              <h4>Return to Profile</h4>
+            </button>
+          </Link>
+        </div>
+      </div>
     );
   }
 }
@@ -103,6 +157,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(
-  withAsyncAction("users", "updateUserInfo")(EditUserForm)
-);
+const mapDispatchToProps = { getUser };
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withAsyncAction("users", "updateUserInfo")(EditUserForm));

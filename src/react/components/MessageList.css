@@ -7,6 +7,7 @@
   overflow: auto;
   display: flex;
   flex-direction: column;
+  border: 5px solid #51eaea;
 }
 
 .messageCard {
@@ -17,12 +18,13 @@
   padding: 1em;
   margin: 0.5em 2em;
   max-height: 100%;
+  max-width: 100%;
 }
 
 .messageFooter {
   display: flex;
   flex-direction: row;
-  border: 1px solid white;
+  border: 1px solid #51eaea;
   border-radius: 1em;
   display: flex;
   justify-content: space-around;

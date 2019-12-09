@@ -13,23 +13,25 @@ class Menu extends React.Component {
     return (
       <div className="menu">
         <h1>Kwitter</h1>
-        {this.props.isAuthenticated && (
-          <div className="menu-links">
-            <NavLink
-              activeClassName="selected"
-              to={`/profile/${this.props.username}`}
-            >
-              {" "}
-              Profile
-            </NavLink>
-            <NavLink activeClassName="selected" to="/messagefeed">
-              Kweed
-            </NavLink>
-            <NavLink to="/" onClick={this.handleLogout}>
-              Logout
-            </NavLink>
-          </div>
-        )}
+        <div className="menu-links">
+          {this.props.isAuthenticated && (
+            <React.Fragment>
+              <NavLink
+                activeClassName="selected"
+                to={`/profile/${this.props.username}`}
+              >
+                {/* {" "} */}
+                Profile
+              </NavLink>
+              <NavLink activeClassName="selected" to="/messagefeed">
+                Kweed
+              </NavLink>
+              <NavLink to="/" onClick={this.handleLogout}>
+                Logout
+              </NavLink>
+            </React.Fragment>
+          )}
+        </div>
       </div>
     );
   }

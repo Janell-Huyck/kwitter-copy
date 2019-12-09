@@ -19,7 +19,6 @@
   padding-bottom: 2em;
 }
 #formStyle {
-  
   align-items: center;
   justify-content: center;
   margin-top: -208px;
@@ -38,7 +37,6 @@
   height: 60px;
   width: 450px;
   margin-top: 20px;
-  font-size: 30em;
   color: #5a4576;
 }
 .buttonSizeLogin {
@@ -50,8 +48,7 @@
   font-weight: 100;
   color: #5a4576;
   text-decoration-line: underline;
-  
-} 
+}
 
 #login-form {
   display: flex;
@@ -92,7 +89,6 @@
   height: 60px;
   width: 450px;
   margin-top: 20px;
-  font-size: 30em;
   color: #5a4576;
 }
 .buttonSizeLogin {
@@ -105,4 +101,3 @@
   color: #5a4576;
   text-decoration-line: underline;
 }
-
