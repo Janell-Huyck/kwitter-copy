@@ -1,6 +1,7 @@
 import React from "react";
 import MessageCardFooter from "./MessageCardFooter";
 import { Link } from ".";
+// import moment from 'moment'
 
 class MessageCard extends React.Component {
   render() {

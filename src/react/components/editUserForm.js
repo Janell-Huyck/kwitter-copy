@@ -15,8 +15,11 @@ class EditUserForm extends React.Component {
     password: '',
     displayName: this.props.displayName,
     about: this.props.about,
-    // error: false
   };
+  componentDidMount() {
+    this.props.getUser(this.props.profileName)
+  }
+
   check = () => {
     const { username, password, displayName } = this.state;
     if (username.trim().length < 3 || username.trim().length > 20) {
