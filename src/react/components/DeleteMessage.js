@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 class DeleteMessage extends React.Component {
   handleDeleteMessage = event => {
+    console.log(this.props)
     const confirmed = window.confirm(
       "Are you sure you want to delete your message?"
     );

@@ -99,7 +99,7 @@ export const deleteUser = () => (dispatch, getState) => {
     });
 };
 
-export const _updateUserInfo = ({ username, displayName, about, password }) => (
+const _updateUserInfo = ({ username, displayName, about, password }) => (
   dispatch,
   getState
 ) => {
@@ -139,7 +139,7 @@ export const updateUserInfo = updateInfo => dispatch => {
   );
 };
 
-export const _putUserPicture = formData => (dispatch, getState) => {
+const _putUserPicture = formData => (dispatch, getState) => {
   dispatch({ type: PUTUSERPICTURE.START });
 
   const { username, token } = getState().auth.login.result;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, ProfileCard, NewMessageBox, MessageList } from "../components";
+import { Menu, ProfileCard, NewMessageBox, MessageList} from "../components";
 import { userIsAuthenticated } from "../HOCs";
 import "./Profile.css";
 import { connect } from "react-redux";
