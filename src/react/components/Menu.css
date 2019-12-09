@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 0.5vh;
+  /* margin: 0.5vh; */
   padding-left: 1em;
   align-items: center;
   flex-grow: 4;
@@ -34,7 +34,6 @@
 }
 .menu > h1 {
   font-size: 5em;
-  margin-top: 20px;
   font-family: "Carter One", cursive;
   color: #51eaea;
   align-self: center;
