@@ -70,7 +70,7 @@ class ProfileCard extends Component {
         <div className="profileButtons">
           {this.props.username === this.props.loggedIn && (
             <Link to={`/edit+profile/${this.props.username}`}>
-              <Button id="editProfileButton">Edit profile</Button>
+              <Button id = 'editProfileButton' >Edit Profile</Button>
             </Link>
           )}
 

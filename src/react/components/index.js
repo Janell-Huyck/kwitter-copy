@@ -10,6 +10,7 @@ export { default as DeleteUserButton } from "./DeleteUserButton";
 export { default as EditUserForm } from './editUserForm'
 export { default as DeleteMessage } from "./DeleteMessage";
 export { default as UploadUserPicture } from "./UploadUserPicture";
+
 // components from other packages
 export { Switch, Route, Link, NavLink } from "react-router-dom";
 export { default as Spinner } from "react-spinkit";

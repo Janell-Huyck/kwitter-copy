@@ -1,16 +1,17 @@
 import React from "react";
 import { withAsyncAction } from "../HOCs";
-import "./EditUserForm.css";
+import "./editUserForm.css";
 import { Input, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
+
 
 class EditUserForm extends React.Component {
   state = {
     username: this.props.username,
-    password: "",
-    displayName: "",
-    about: "",
-    error: false
+    password: '',
+    // displayName: this.props.displayName,
+    // about: this.props.about,
+    // error: false
   };
   check = () => {
     const { username, password, displayName } = this.state;
@@ -34,7 +35,7 @@ class EditUserForm extends React.Component {
         displayName: this.state.displayName,
         about: this.state.about
       });
-      // return push("/profle/" + this.props.username);
+      //  return push("/profle/" + this.props.username);
     }
   };
 
@@ -61,13 +62,12 @@ class EditUserForm extends React.Component {
     return (
       <React.Fragment>
         <form id="edit-profile-form" onSubmit={this.handleSubmit}>
-          <h1>Edit Profile (All Fields Required)</h1>
+          <h1>Edit Profile</h1>
           <Input
             size="large"
             label="New Password"
             type="password"
             name="password"
-            required
             placeholder="3-20 characters, required"
             onChange={this.handleChange}
           />
@@ -76,7 +76,7 @@ class EditUserForm extends React.Component {
             label="New Display Name"
             type="text"
             name="displayName"
-            placeholder="3-20 characters, required"
+            placeholder="3-20 characters"
             onChange={this.handleChange}
           />
           <Input
@@ -84,7 +84,7 @@ class EditUserForm extends React.Component {
             label="New About"
             type="text"
             name="about"
-            placeholder="Say something about yourself.  (Required)"
+            placeholder="Say something about yourself."
             onChange={this.handleChange}
           />
           <Button size="huge" type="submit">
@@ -97,7 +97,9 @@ class EditUserForm extends React.Component {
 }
 const mapStateToProps = state => {
   return {
-    username: state.auth.login.result.username
+    username: state.auth.login.result.username,
+    // displayName: state.users.getUser.result.user.displayName,
+    // about: state.users.getUser.result.user.about,
   };
 };
 
