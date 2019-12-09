@@ -1,9 +1,6 @@
 import React from "react";
 import { withAsyncAction } from "../HOCs";
-
-
 import "./EditUserForm.css";
-
 import { connect } from "react-redux";
 import { DeleteUserButton, UploadUserPicture, EditUserProfileCard } from ".";
 import { Link } from ".";
@@ -16,9 +13,9 @@ class EditUserForm extends React.Component {
   state = {
     username: this.props.username,
     password: '',
-    // displayName: this.props.displayName,
-    // about: this.props.about,
-    // error: false
+    displayName: this.props.displayName,
+    about: this.props.about,
+    error: false
   };
   check = () => {
     const { username, password, displayName } = this.state;
@@ -152,8 +149,8 @@ class EditUserForm extends React.Component {
 const mapStateToProps = state => {
   return {
     username: state.auth.login.result.username,
-    // displayName: state.users.getUser.result.user.displayName,
-    // about: state.users.getUser.result.user.about,
+    displayName: state.users.getUser.result.user.displayName,
+    about: state.users.getUser.result.user.about,
   };
 };
 
