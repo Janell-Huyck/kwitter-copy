@@ -12,7 +12,9 @@ class EditUser extends React.Component {
           Edit Profile
         </h1>
 
-        <EditUserForm />
+        <EditUserForm
+        profileName = {this.props.match.params.username}
+        />
       </>
     );
   }
