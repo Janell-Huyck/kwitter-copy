@@ -26,7 +26,7 @@ class ProfileCard extends Component {
           {this.props.pictureLocation ? (
             <img
               className="user-picture"
-              src={`https://kwitter-api.herokuapp.com${this.props.pictureLocation}`}
+              src={`https://kwitter-kweed.herokuapp.com${this.props.pictureLocation}`}
               alt="user profile"
             />
           ) : (
