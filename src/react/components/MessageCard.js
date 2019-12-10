@@ -1,10 +1,21 @@
 import React from "react";
 import MessageCardFooter from "./MessageCardFooter";
 import { Link } from ".";
-// import moment from 'moment'
+import moment from 'moment'
 
 class MessageCard extends React.Component {
-  render() {
+  check = (time) => {
+    if (moment(time).fromNow().split(' ').includes('seconds') || moment(time).fromNow().split(' ').includes('minutes') || moment(time).fromNow().split(' ').includes('hour') || moment(time).fromNow().split(' ').includes('hours')) {
+      return true
+    }
+    else if (moment(time).fromNow().split(' ')[0] > 7 && moment(time).fromNow().split(' ').includes('days')){
+      return false
+    }
+    else if (!moment(time).fromNow().split(' ').includes('days')) {
+      return false
+    }
+  }
+      render() {
     return (
       <React.Fragment>
         <div>
@@ -12,7 +23,11 @@ class MessageCard extends React.Component {
             <h4>{this.props.author}</h4>
           </Link>
           <p>{this.props.text}</p>
-          <p>{new Date(this.props.createdAt).toDateString()}</p>
+          {
+          this.check(this.props.createdAt) ?
+            <p>{moment(this.props.createdAt).fromNow()}</p> :
+            <p>{new Date(this.props.createdAt).toDateString()}</p>
+          }
         </div>
         <MessageCardFooter
           id={this.props.id}
