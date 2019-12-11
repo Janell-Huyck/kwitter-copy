@@ -1,7 +1,7 @@
 {
   "name": "kwitter",
   "version": "0.1.0",
-  "homepage": "https://janell.gitlab.io/kwitter-frontend",
+  "homepage": "https://gitlab.com/janell/kwitter-frontend",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
